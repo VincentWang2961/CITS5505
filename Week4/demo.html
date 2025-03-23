@@ -8,4 +8,29 @@
     <p id="p1">Here is a paragraph</p>
     <p id="p2">Here is another paragraph</p>
     <button onclick="getElementById('p1').innerHTML='Href href!'">Click me</button>
+
+
+    <script>
+        document.getElementById('p2').innerHTML = 'Hello World!';
+        console.log('Hello World!');
+        console.log(0.1 + 0.2);
+        console.log(0.1 + 0.2 == 0.3);
+        console.log(0.4 + 0.5);
+        
+        // Example of null
+        let a = null; // a is explicitly set to "no value"
+        console.log(a); // Output: null
+        console.log(typeof a); // Output: object (this is a quirk in JavaScript)
+
+        // Example of undefined
+        let b; // b is declared but not assigned
+        console.log(b); // Output: undefined
+
+        // Accessing a non-existent property
+        let obj = {};
+        console.log(obj.someProperty); // Output: undefined
+
+        console.log("dog" == true);
+        console.log("b" + "a" + + "n" + "a");
+    </script>
 </body>
