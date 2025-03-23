@@ -8,7 +8,8 @@
     <p id="p1">Here is a paragraph</p>
     <p id="p2">Here is another paragraph</p>
     <button onclick="getElementById('p1').innerHTML='Href href!'">Click me</button>
-
+    <button onclick="buttonlog()">Click me</button>
+    <p id="max-result"></p> <!-- New paragraph to display the result -->
 
     <script>
         document.getElementById('p2').innerHTML = 'Hello World!';
@@ -32,5 +33,24 @@
 
         console.log("dog" == true);
         console.log("b" + "a" + + "n" + "a");
+
+        function buttonlog() {
+            console.log("You pressed a button!");
+        }
+
+        function findMax() {
+            let max = -Infinity;
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            console.log("Get the max value: " + max);
+            return max;
+        }
+
+        // Call findMax and display the result in the DOM
+        const maxValue = findMax(4, 5, 6); // Example arguments
+        document.getElementById('max-result').innerHTML = "Max Value: " + maxValue;
     </script>
 </body>
