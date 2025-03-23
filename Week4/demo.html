@@ -52,5 +52,13 @@
         // Call findMax and display the result in the DOM
         const maxValue = findMax(4, 5, 6); // Example arguments
         document.getElementById('max-result').innerHTML = "Max Value: " + maxValue;
+
+        let points = [2, 8, 1, 5, 3, 1];
+
+        points.sort();
+        console.log(points);
+
+        points.sort((a, b) => {return b - a;});
+        console.log(points);
     </script>
 </body>
