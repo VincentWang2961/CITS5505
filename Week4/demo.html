@@ -62,14 +62,14 @@
         console.log(points);
 
         // Recursive function
-        var ninja = {
+        const ninja = {
             yell: function cry(n) {
                 return n > 0 ? cry(n - 1) + "a" : "hiy";
             }
         };
         console.log(ninja.yell(5));
 
-        // Class
+        // Class and constructor
         class Dog {
             constructor(name) {
                 this.name = name;
@@ -78,8 +78,18 @@
                 console.log(this.name + " barks.");
             }
         }
-        const dog = new Dog("Rex");
+        const dog = new Dog("Bingo");
         dog.bark();
+
+        // Prototype, to add a method to an existing class
+        function Cat(name) {
+            this.name = name;
+        }
+        Cat.prototype.meow = function() {
+            console.log(this.name + " meows.");
+        }
+        const cat = new Cat("Whiskers");
+        cat.meow();
 
     </script>
 </body>
