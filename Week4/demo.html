@@ -60,5 +60,26 @@
 
         points.sort((a, b) => {return b - a;});
         console.log(points);
+
+        // Recursive function
+        var ninja = {
+            yell: function cry(n) {
+                return n > 0 ? cry(n - 1) + "a" : "hiy";
+            }
+        };
+        console.log(ninja.yell(5));
+
+        // Class
+        class Dog {
+            constructor(name) {
+                this.name = name;
+            }
+            bark() {
+                console.log(this.name + " barks.");
+            }
+        }
+        const dog = new Dog("Rex");
+        dog.bark();
+
     </script>
 </body>
