@@ -148,6 +148,7 @@ input:checked + .slider:before {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -166,7 +167,7 @@ input:checked + .slider:before {
 
 .hero-content p {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s ease forwards 0.3s;
@@ -182,6 +183,8 @@ input:checked + .slider:before {
     align-items: center;
     color: white;
     animation: bounce 2s infinite;
+    width: max-content;
+    /* will-change: transform; */
 }
 
 .scroll-indicator i {
@@ -585,13 +588,13 @@ footer {
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translate(-50%, 0); /* Bug Fixed: Always keep X center*/
     }
     40% {
-        transform: translateY(-10px);
+        transform: translate(-50%, -10px);
     }
     60% {
-        transform: translateY(-5px);
+        transform: translate(-50%, -5px);
     }
 }
 
