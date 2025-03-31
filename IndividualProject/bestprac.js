@@ -120,35 +120,43 @@ document.addEventListener('DOMContentLoaded', function() {
         const checkedCount = document.querySelectorAll('.practice-checkbox:checked').length;
         
         // Update count display
+        const practicesCountElement = document.getElementById('practices-count');
+        const totalPractices = document.querySelectorAll('.practice-checkbox').length;
         practicesCountElement.textContent = checkedCount;
         
         // Calculate percentage
         const percentage = Math.round((checkedCount / totalPractices) * 100);
-        percentageElement.textContent = `${percentage}%`;
+        document.getElementById('percentage').textContent = `${percentage}%`;
         
         // Update progress ring
-        const circumference = 2 * Math.PI * 65; // 2πr where r=65
+        const circle = document.querySelector('.progress-ring-circle');
+        const radius = circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
         const offset = circumference - (percentage / 100) * circumference;
-        progressRingCircle.style.strokeDashoffset = offset;
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = offset;
         
-        // Check if success criteria is met
+        // Check if success criteria is met (15 out of 20)
+        const successThreshold = 15;
+        const successMessage = document.getElementById('success-message');
+        const rewardContainer = document.getElementById('reward-container');
+        
         if (checkedCount >= successThreshold) {
-            successMessageElement.classList.remove('hidden');
+            successMessage.classList.remove('hidden');
+            rewardContainer.classList.remove('hidden');
+            setTimeout(() => {
+                rewardContainer.classList.add('visible');
+            }, 100);
             
-            // Show reward container if not already visible
-            if (!rewardContainerElement.classList.contains('visible')) {
-                rewardContainerElement.classList.remove('hidden');
-                setTimeout(() => {
-                    rewardContainerElement.classList.add('visible');
-                    // Fetch cute animal image when success criteria is first met
-                    fetchCuteAnimal();
-                }, 100);
+            // Only fetch new animal if container wasn't visible before
+            if (!rewardContainer.classList.contains('visible')) {
+                fetchCuteAnimal();
             }
         } else {
-            successMessageElement.classList.add('hidden');
-            rewardContainerElement.classList.remove('visible');
+            successMessage.classList.add('hidden');
+            rewardContainer.classList.remove('visible');
             setTimeout(() => {
-                rewardContainerElement.classList.add('hidden');
+                rewardContainer.classList.add('hidden');
             }, 800);
         }
     }
@@ -200,10 +208,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to handle scroll animations
     function handleScrollAnimations() {
-        // Animate practice categories when they come into view
         const practiceCategories = document.querySelectorAll('.practices-category');
         practiceCategories.forEach((category, index) => {
-            if (isInViewport(category) && !category.classList.contains('visible')) {
+            const rect = category.getBoundingClientRect();
+            const isInView = (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+            
+            if (isInView && !category.classList.contains('visible')) {
                 // Add delay based on index for staggered animation
                 setTimeout(() => {
                     category.classList.add('visible');
@@ -274,4 +287,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start typing effect after a short delay
     setTimeout(setupTypingEffect, 500);
+
+    // Add event listeners to checkboxes
+    document.querySelectorAll('.practice-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', updateSummary);
+    });
+
+    // Call updateSummary on page load
+    document.addEventListener('DOMContentLoaded', updateSummary);
 });
