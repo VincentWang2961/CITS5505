@@ -1,5 +1,5 @@
 /* 
- * Main Stylesheet for John Doe's CV Website
+ * Main Stylesheet for Vincent's CV Website
  * This CSS file includes styling for all components, responsive design,
  * animations, and dark mode functionality.
  */
@@ -270,6 +270,7 @@ input:checked + .slider:before {
 }
 
 .skill-category {
+    opacity: 0;
     flex: 1;
     min-width: 250px;
     background-color: var(--background-color);
