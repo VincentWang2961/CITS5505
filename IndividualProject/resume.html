@@ -1,32 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Resume</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Curriculum Vitae</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+    <!-- Dark mode toggle -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <em>Toggle Dark Mode</em>
+    </div>
 
-        <link rel="stylesheet" href="./resume.css">
-    </head>
-    <body>
+    <!-- Hero section - Full screen with name and short intro -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="animated-text">John Doe</h1>
+            <p class="animated-text-delay">Web Developer & UI/UX Designer</p>
+            <div class="scroll-indicator">
+                <p>Scroll Down</p>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
 
-        <!-- Header -->
+    <!-- Main content section -->
+    <main class="container">
+        <!-- About section with profile picture -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-picture-container">
+                    <!-- Profile picture appears as you scroll -->
+                    <img src="https://via.placeholder.com/300" alt="John Doe" class="profile-picture" id="profile-picture">
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm John Doe, a passionate web developer with expertise in creating responsive, user-friendly websites and applications. I specialize in front-end development and have a keen eye for design and user experience.</p>
+                    <p>With 5+ years of experience in the industry, I've worked on various projects ranging from small business websites to large-scale web applications. I'm constantly learning and adapting to new technologies to stay at the forefront of web development.</p>
+                    <p>When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new design trends. I believe in creating web experiences that are not only visually appealing but also accessible and intuitive for all users.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills section with tech stack icons -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fas fa-code"></i>
+                            <span>C</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-jquery"></i>
+                            <span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="tech-icon">
+                            <i class="fas fa-terminal"></i>
+                            <span>Command Line</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>2021 - Present</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Senior Front-end Developer</h3>
+                        <h4>Tech Solutions Inc.</h4>
+                        <p>Lead front-end development for enterprise clients. Implemented responsive designs and improved website performance by 40%. Mentored junior developers and introduced best practices in code reviews.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>2018 - 2021</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Web Developer</h3>
+                        <h4>Digital Creations Agency</h4>
+                        <p>Developed and maintained websites for various clients. Collaborated with designers to implement pixel-perfect UIs. Worked with WordPress, HTML, CSS, and JavaScript to create responsive websites.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>2016 - 2018</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Junior Web Developer</h3>
+                        <h4>StartUp Innovations</h4>
+                        <p>Assisted in the development of web applications. Gained experience in front-end technologies and responsive design principles. Participated in code reviews and team meetings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education section -->
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <h4>University of Technology</h4>
+                    <p class="education-date">2012 - 2016</p>
+                    <p>Graduated with honors. Specialized in web development and software engineering. Participated in various hackathons and coding competitions.</p>
+                </div>
+                <div class="education-item">
+                    <h3>Full-Stack Web Development Bootcamp</h3>
+                    <h4>Code Academy</h4>
+                    <p class="education-date">2016</p>
+                    <p>Intensive 12-week program focusing on modern web technologies and best practices in web development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email: <a href="mailto:placeholder@example.com">placeholder@example.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>Phone: (XXX) XXX-XXXX</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Location: City, Country</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <p>LinkedIn: <a href="https://linkedin.com/" target="_blank">linkedin.com/in/johndoe</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <p>GitHub: <a href="https://github.com/" target="_blank">github.com/johndoe</a></p>
+                </div>
+            </div>
+            
+            <!-- Button to redirect to another page -->
+            <div class="redirect-button-container">
+                <a href="coding-practices.html" class="redirect-button">
+                    <span>View Coding Practices Guide</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- References section -->
+        <section id="references" class="section">
+            <h2 class="section-title">References</h2>
+            <div class="references-container">
+                <div class="reference-item">
+                    <h3>Sources Used</h3>
+                    <ul>
+                        <li>MDN Web Docs - <a href="https://developer.mozilla.org/" target="_blank">developer.mozilla.org</a></li>
+                        <li>CSS-Tricks - <a href="https://css-tricks.com/" target="_blank">css-tricks.com</a></li>
+                        <li>Font Awesome - <a href="https://fontawesome.com/" target="_blank">fontawesome.com</a></li>
+                        <li>Google Fonts - <a href="https://fonts.google.com/" target="_blank">fonts.google.com</a></li>
+                    </ul>
+                </div>
+                <div class="reference-item">
+                    <h3>AI Assistance</h3>
+                    <p>This CV webpage was created with assistance from ChatGPT by OpenAI, which helped with code structure, design suggestions, and implementation of interactive elements.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <span class="fs-4">Vincent Wang's Website</span>
-              </a>
-        
-              <ul class="nav nav-pills">
-                <li class="nav-item" id="resume-button"><a href="#" class="nav-link active">Resume</a></li>
-                <li class="nav-item" id="practice-button"><a href="#" class="nav-link">Best practices</a></li>
-              </ul>
-            </header>
-          </div>
+            <p>&copy; 2023 John Doe. All rights reserved.</p>
+        </div>
+    </footer>
 
-        
-        <!-- Script -->
-        <script src="./resume.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
+    <!-- JavaScript -->
+    <script src="resume.js"></script>
+</body>
 </html>
