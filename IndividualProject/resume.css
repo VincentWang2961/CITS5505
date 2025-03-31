@@ -337,14 +337,17 @@ input:checked + .slider:before {
     bottom: 0;
     left: 50%;
     margin-left: -2px;
+    z-index: 0;
 }
 
 .timeline-item {
+    opacity: 0;
     padding: 10px 40px;
     position: relative;
     width: 50%;
     box-sizing: border-box;
     margin-bottom: 2rem;
+    z-index: 1;
 }
 
 .timeline-item::after {
@@ -356,7 +359,7 @@ input:checked + .slider:before {
     border: 4px solid var(--background-color);
     border-radius: 50%;
     top: 15px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .timeline-item:nth-child(odd) {
@@ -564,9 +567,49 @@ input:checked + .slider:before {
 /* ===== FOOTER ===== */
 footer {
     background-color: var(--section-bg-color);
-    padding: 1.5rem 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
+}
+
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+    position: fixed;
+    bottom: -60px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1) translateY(-5px);
+}
+
+.back-to-top:active {
+    transform: scale(0.95);
+}
+
+.theme-switch-wrapper {
+    top: 20px;
+    right: 20px;
+    left: auto;
 }
 
 /* ===== ANIMATIONS ===== */
