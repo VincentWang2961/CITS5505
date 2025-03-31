@@ -52,17 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('total-practices').textContent = totalPractices;
     
     // Function to toggle practice item details
-    function togglePracticeDetails() {
+    function togglePracticeDetails(e) {
+        // Check if the click came from the checkbox or its container
+        if (e.target.closest('.checkbox-container')) {
+            return; // Do nothing if checkbox was clicked
+        }
+        
         // Get the practice item containing the clicked header
         const practiceItem = this.closest('.practice-item');
-        
-        // Toggle the 'active' class to show/hide details
         practiceItem.classList.toggle('active');
     }
     
     // Add click event to all practice headers
-    practiceItems.forEach(item => {
-        const header = item.querySelector('.practice-header');
+    document.querySelectorAll('.practice-header').forEach(header => {
         header.addEventListener('click', togglePracticeDetails);
     });
     
@@ -93,10 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add change event to all checkboxes
     practiceCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', saveCheckboxState);
-        
-        // Prevent propagation of click event to parent elements
-        checkbox.addEventListener('click', e => {
+        checkbox.addEventListener('change', function(e) {
+            e.stopPropagation(); // Stop event from bubbling up
+            saveCheckboxState.call(this, e);
+        });
+
+        // Prevent clicks on checkbox from triggering parent events
+        checkbox.addEventListener('click', function(e) {
             e.stopPropagation();
         });
     });
