@@ -7,22 +7,25 @@
 // Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ===== DARK MODE TOGGLE =====
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    // ===== FLOATING NAVIGATION AND DARK MODE TOGGLE =====
+    const themeToggle = document.querySelector('.theme-toggle');
+    const navButtons = document.querySelectorAll('.floating-nav-button');
     
     // Function to switch theme
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark'); // Save preference to localStorage
-        } else {
+    function switchTheme() {
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light'); // Save preference to localStorage
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark'); // Save preference to localStorage
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
     }
     
-    // Event listener for theme switch
-    toggleSwitch.addEventListener('change', switchTheme, false);
+    // Event listener for theme toggle
+    themeToggle.addEventListener('click', switchTheme);
     
     // Check for saved user preference
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
@@ -32,16 +35,34 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.setAttribute('data-theme', currentTheme);
         
         if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
     } else {
         // Check if user prefers dark mode based on system settings
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.setAttribute('data-theme', 'dark');
-            toggleSwitch.checked = true;
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             localStorage.setItem('theme', 'dark');
         }
     }
+    
+    // Handle navigation button clicks
+    navButtons.forEach(button => {
+        if (button.classList.contains('theme-toggle')) return;
+        
+        button.addEventListener('click', function() {
+            const page = this.getAttribute('data-page');
+            if (page) {
+                if (page === 'resume') {
+                    window.location.href = './resume.html';
+                } else if (page === 'bestprac') {
+                    window.location.href = './bestprac.html';
+                }
+            }
+        });
+    });
     
     // ===== PRACTICE ITEMS INTERACTION =====
     const practiceItems = document.querySelectorAll('.practice-item');
@@ -236,6 +257,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger once on load to check for elements already in viewport
     handleScrollAnimations();
     
+    // ===== BACK TO TOP BUTTON =====
+    const backToTopButton = document.getElementById('backToTop');
+
+    // Function to show/hide the back-to-top button based on scroll position
+    function handleBackToTopVisibility() {
+        if (window.pageYOffset > 300) { // Show button after scrolling 300px
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+    
+    // Add scroll event listener for back to top button
+    window.addEventListener('scroll', handleBackToTopVisibility);
+    
+    // Back to top button click event
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Initialize back to top button visibility
+    handleBackToTopVisibility();
+    
     // ===== TYPING EFFECT FOR HERO SECTION =====
     function setupTypingEffect() {
         const texts = document.querySelectorAll('.animated-text, .animated-text-delay');
@@ -263,41 +310,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== BACK TO TOP BUTTON =====
-    const backToTopButton = document.querySelector('.back-to-top');
-
-    // Function to show/hide the back-to-top button based on scroll position
-    function toggleBackToTop() {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    }
-
-    // Function to scroll to the top of the page
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    // Event listeners for back-to-top button
-    window.addEventListener('scroll', toggleBackToTop);
-    backToTopButton.addEventListener('click', scrollToTop);
-
-    // Initial check to show/hide the button on page load
-    toggleBackToTop();
-    
     // Start typing effect after a short delay
     setTimeout(setupTypingEffect, 500);
 
-    // Add event listeners to checkboxes
-    document.querySelectorAll('.practice-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', updateSummary);
-    });
-
     // Call updateSummary on page load
-    document.addEventListener('DOMContentLoaded', updateSummary);
+    updateSummary();
 });

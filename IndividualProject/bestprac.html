@@ -10,13 +10,17 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <!-- Dark mode toggle -->
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-        </label>
-        <em>DARK MODE</em>
+    <!-- Floating Navigation Bar -->
+    <div class="floating-nav">
+        <div class="floating-nav-button" data-page="resume" title="CV Page">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="floating-nav-button active" data-page="bestprac" title="Best Practices">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="floating-nav-button theme-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </div>
     </div>
 
     <!-- Hero section -->
@@ -516,7 +520,7 @@ import { login, logout } from './userAuth.js';
 
         <!-- Back to CV button -->
         <div class="redirect-button-container">
-            <a href="resume.html" class="redirect-button">
+            <a href="resume.html" class="redirect-button back">
                 <i class="fas fa-arrow-left"></i>
                 <span>Back to CV</span>
             </a>
@@ -531,9 +535,9 @@ import { login, logout } from './userAuth.js';
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" title="Go to top">
+    <div class="back-to-top" id="backToTop" title="Go to top">
         <i class="fas fa-arrow-up"></i>
-    </button>
+    </div>
 
     <!-- JavaScript -->
     <script src="./bestprac.js"></script>
