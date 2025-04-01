@@ -78,7 +78,7 @@ a:hover {
 .floating-nav {
     position: fixed;
     top: 50%;
-    right: 20px;
+    right: -60px; /* Start off-screen to the right */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -88,7 +88,17 @@ a:hover {
     border-radius: 30px;
     box-shadow: 0 2px 10px var(--shadow-color);
     z-index: 999;
-    transition: all var(--transition-speed);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother animation */
+    animation: slideInFromRight 0.8s forwards 0.5s; /* Animation to slide in from right */
+}
+
+@keyframes slideInFromRight {
+    from {
+        right: -60px;
+    }
+    to {
+        right: 20px;
+    }
 }
 
 .floating-nav-button {
@@ -106,7 +116,7 @@ a:hover {
 }
 
 .floating-nav-button:hover {
-    transform: translateX(-5px);
+    transform: scale(1.15); /* Change to scale instead of translateX */
     background-color: var(--primary-color);
     color: white;
 }
@@ -675,11 +685,7 @@ footer {
 
 .back-to-top:hover {
     background-color: var(--secondary-color);
-    transform: scale(1.1) translateY(-5px);
-}
-
-.back-to-top:active {
-    transform: scale(0.95);
+    transform: scale(1.1); /* Change to just scale without translateY */
 }
 
 /* ===== INTRO SECTION ===== */
@@ -1090,14 +1096,15 @@ footer {
     .floating-nav {
         top: auto;
         bottom: 20px;
-        right: 20px;
+        right: 20px; /* Ensure it's visible on mobile */
         transform: none;
         flex-direction: row;
         padding: 8px 12px;
+        animation: none; /* Remove animation on mobile */
     }
     
     .floating-nav-button:hover {
-        transform: translateY(-5px);
+        transform: scale(1.15); /* Keep consistent with the desktop scale hover */
     }
     
     .back-to-top.visible {
