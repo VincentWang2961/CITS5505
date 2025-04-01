@@ -63,6 +63,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // ===== BACK TO TOP BUTTON =====
+    const backToTopButton = document.getElementById('backToTop');
+    
+    // Function to handle back to top button visibility
+    function handleBackToTopVisibility() {
+        if (window.pageYOffset > 300) { // Show button after scrolling 300px
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    }
+    
+    // Add scroll event listener for back to top button
+    window.addEventListener('scroll', handleBackToTopVisibility);
+    
+    // Back to top button click event
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Initialize back to top button visibility
+    handleBackToTopVisibility();
+    
     // ===== PROFILE PICTURE ANIMATION =====
     const profilePicture = document.getElementById('profile-picture');
     
@@ -176,33 +202,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== BACK TO TOP BUTTON =====
-    const backToTopButton = document.querySelector('.back-to-top');
-
-    // Function to show/hide the back-to-top button based on scroll position
-    function toggleBackToTop() {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    }
-
-    // Function to scroll to the top of the page
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    // Event listeners for back-to-top button
-    window.addEventListener('scroll', toggleBackToTop);
-    backToTopButton.addEventListener('click', scrollToTop);
-
-    // Initial check to show/hide the button on page load
-    toggleBackToTop();
-    
-    // Start typing effect after a short delay
-    setTimeout(setupTypingEffect, 500);
 });
