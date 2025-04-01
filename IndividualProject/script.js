@@ -337,14 +337,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // ===== CUTE ANIMAL REWARD FEATURE =====
-        const rewardImageElement = document.getElementById('reward-image');
-        const newRewardButton = document.getElementById('new-reward-btn');
-        
-        // Function to fetch a cute animal image using AJAX
+        // ===== CUTE ANIMAL REWARD FEATURE ===== //
+        // Function to fetch a cute animal image from public API
         function fetchCuteAnimal() {
             // Show loading state
-            rewardImageElement.src = 'https://via.placeholder.com/400x300?text=Loading...';
+            const rewardImage = document.getElementById('reward-image');
+            rewardImage.src = ''; // Clear current image
+            rewardImage.alt = 'Loading cute animal...';
             
             // Use the Dog CEO API for cute dog images
             fetch('https://dog.ceo/api/breeds/image/random')
@@ -355,19 +354,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     return response.json();
                 })
                 .then(data => {
-                    // Update image source with the fetched dog image
-                    rewardImageElement.src = data.message;
-                    rewardImageElement.alt = 'Cute dog reward';
+                    if (data && data.message) {
+                        rewardImage.src = data.message;
+                        rewardImage.alt = 'Cute dog as a reward';
+                        
+                        // Handle image loading error
+                        rewardImage.onerror = function() {
+                            rewardImage.src = './fallback-dog.jpg'; // Fallback image
+                            rewardImage.alt = 'Cute animal (fallback image)';
+                        };
+                    } else {
+                        throw new Error('Invalid API response');
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching cute animal:', error);
-                    // Fallback image in case of error
-                    rewardImageElement.src = 'https://via.placeholder.com/400x300?text=Could+not+load+image';
-                    rewardImageElement.alt = 'Error loading cute animal';
+                    // Use fallback image on error
+                    rewardImage.src = './fallback-dog.jpg'; // Make sure to add a fallback image file
+                    rewardImage.alt = 'Cute animal (fallback image)';
                 });
         }
         
-        // Event listener for the "Get Another Cute Animal" button
-        newRewardButton.addEventListener('click', fetchCuteAnimal);
+        // Add event listener to the "Get Another Cute Animal" button
+        const newRewardBtn = document.getElementById('new-reward-btn');
+        if (newRewardBtn) {
+            newRewardBtn.addEventListener('click', fetchCuteAnimal);
+        }
+        
+        // Initial fetch if criteria is already met on page load
+        if (document.querySelectorAll('.practice-checkbox:checked').length >= successThreshold) {
+            fetchCuteAnimal();
+        }
     }
 });
