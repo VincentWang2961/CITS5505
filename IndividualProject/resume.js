@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
     
     // ===== BACK TO TOP BUTTON =====
     const backToTopButton = document.getElementById('backToTop');
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize back to top button visibility
     handleBackToTopVisibility();
+
     
     // ===== PROFILE PICTURE ANIMATION =====
     const profilePicture = document.getElementById('profile-picture');
@@ -136,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Trigger once on load to check for elements already in viewport
     handleScrollAnimations();
+
     
     // ===== SMOOTH SCROLLING FOR INTERNAL LINKS =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -147,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
     
     // ===== TECH ICONS HOVER EFFECT =====
     const techIcons = document.querySelectorAll('.tech-icon');
@@ -171,7 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
     redirectButton.addEventListener('mouseleave', function() {
         this.querySelector('i').style.transform = 'translateX(0)';
     });
-    
+
+
     // ===== TYPING EFFECT FOR HERO SECTION =====
     // This is a simple implementation of a typing effect
     // For more complex typing effects, consider using libraries like Typed.js
