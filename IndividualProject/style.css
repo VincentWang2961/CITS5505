@@ -566,7 +566,7 @@ input:checked + .slider:before {
     border-radius: 30px;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(74, 111, 165, 0.3);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    transition: transform var(--transition-speed), box-shadow var (--transition-speed), background-color var(--transition-speed);
     overflow: hidden;
     position: relative;
 }
@@ -877,7 +877,8 @@ footer {
     stroke: var(--primary-color);
     stroke-width: 10;
     fill: transparent;
-    stroke-dasharray: 408.4;
+    stroke-dasharray: 408.4; /* This will be set by JS */
+    stroke-dashoffset: 408.4; /* This will be updated by JS */
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
     transition: stroke-dashoffset 1s ease;
@@ -990,7 +991,7 @@ footer {
 
 /* ===== UTILITY CLASSES ===== */
 .hidden {
-    display: none;
+    display: none !important; /* Add !important to ensure hidden stays hidden */
 }
 
 /* ===== ANIMATIONS ===== */
