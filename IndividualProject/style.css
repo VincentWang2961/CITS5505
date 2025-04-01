@@ -507,7 +507,7 @@ input:checked + .slider:before {
 }
 
 .education-item h4 {
-    color: var(--secondary-color);
+    color: var (--secondary-color);
     font-weight: normal;
     margin-bottom: 0.5rem;
 }
@@ -664,16 +664,9 @@ footer {
 /* ===== PRACTICES SECTION ===== */
 .practices-category {
     margin-bottom: 3rem;
-    transform: translateY(20px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s, transform 0.8s, visibility 0.8s;
 }
 
 .practices-category.visible {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
 }
 
 .practices-category h3 {

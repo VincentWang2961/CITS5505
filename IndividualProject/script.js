@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const practiceItems = document.querySelectorAll('.practice-item');
         const practiceCheckboxes = document.querySelectorAll('.practice-checkbox');
         const totalPractices = practiceCheckboxes.length;
+        const practiceCategories = document.querySelectorAll('.practices-category');
         
         // Set the total practices count in the summary
         document.getElementById('total-practices').textContent = totalPractices;
@@ -369,9 +370,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // ===== ANIMATION ON SCROLL =====
+        // Remove the function that animates practice categories on scroll
+        /*
         // Function to handle scroll animations for best practices page
         function handleBestPracScrollAnimations() {
-            const practiceCategories = document.querySelectorAll('.practices-category');
             practiceCategories.forEach((category, index) => {
                 if (isInViewport(category) && !category.classList.contains('visible')) {
                     // Add delay based on index for staggered animation
@@ -385,8 +387,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add scroll event listener for animations
         window.addEventListener('scroll', handleBestPracScrollAnimations);
         
-        // Trigger once on load to check for elements already in viewport
-        handleBestPracScrollAnimations();
+        // Initialize animations for elements already in viewport on page load
+        setTimeout(() => {
+            handleBestPracScrollAnimations(); // Call the function to check initial viewport
+        }, 500); // Small delay after page load to ensure DOM is ready
+        */
         
         // Call updateSummary on page load
         updateSummary();
