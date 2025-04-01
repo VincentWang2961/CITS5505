@@ -269,10 +269,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add change event to all checkboxes
         practiceCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function(e) {
-                saveCheckboxState.call(this, e);
-            });
-
+            checkbox.addEventListener('change', saveCheckboxState);
+            
             // Prevent clicks on checkbox from triggering parent events
             checkbox.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -288,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const percentageElement = document.getElementById('percentage');
         const successMessageElement = document.getElementById('success-message');
         const rewardContainerElement = document.getElementById('reward-container');
-        const rewardImageElement = document.getElementById('reward-image');
         
         // Success criteria: 15 out of 20 practices (75%)
         const successThreshold = 15;
@@ -299,89 +296,78 @@ document.addEventListener('DOMContentLoaded', function() {
             const checkedCount = document.querySelectorAll('.practice-checkbox:checked').length;
             
             // Update count display
+            const practicesCountElement = document.getElementById('practices-count');
+            const totalPractices = document.querySelectorAll('.practice-checkbox').length;
             practicesCountElement.textContent = checkedCount;
             
             // Calculate percentage
             const percentage = Math.round((checkedCount / totalPractices) * 100);
-            percentageElement.textContent = `${percentage}%`;
+            document.getElementById('percentage').textContent = `${percentage}%`;
             
             // Update progress ring
-            if (progressRingCircle) {
-                const radius = progressRingCircle.r.baseVal.value;
-                const circumference = 2 * Math.PI * radius;
-                
-                progressRingCircle.style.strokeDasharray = `${circumference} ${circumference}`;
-                const offset = circumference - (checkedCount / totalPractices) * circumference;
-                progressRingCircle.style.strokeDashoffset = offset;
-            }
+            const circle = document.querySelector('.progress-ring-circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = offset;
             
-            // Check if success criteria is met
+            // Check if success criteria is met (15 out of 20)
+            const successThreshold = 15;
+            const successMessage = document.getElementById('success-message');
+            const rewardContainer = document.getElementById('reward-container');
+            
             if (checkedCount >= successThreshold) {
-                if (successMessageElement) successMessageElement.classList.remove('hidden');
-                if (rewardContainerElement) {
-                    rewardContainerElement.classList.remove('hidden');
-                    // Give time for the hidden class to be removed before adding visible
-                    setTimeout(() => {
-                        rewardContainerElement.classList.add('visible');
-                        // Fetch a cute animal if the image is not yet loaded
-                        if (!rewardImageElement.src || rewardImageElement.src === 'https://via.placeholder.com/400x300?text=Loading...' || rewardImageElement.src.includes('placeholder')) {
-                            fetchCuteAnimal();
-                        }
-                    }, 50);
+                successMessage.classList.remove('hidden');
+                rewardContainer.classList.remove('hidden');
+                setTimeout(() => {
+                    rewardContainer.classList.add('visible');
+                }, 100);
+                
+                // Only fetch new animal if container wasn't visible before
+                if (!rewardContainer.classList.contains('visible')) {
+                    fetchCuteAnimal();
                 }
             } else {
-                if (successMessageElement) successMessageElement.classList.add('hidden');
-                if (rewardContainerElement) {
-                    rewardContainerElement.classList.remove('visible');
-                    // Give time for the animation to complete before hiding
-                    setTimeout(() => {
-                        rewardContainerElement.classList.add('hidden');
-                    }, 500);
-                }
+                successMessage.classList.add('hidden');
+                rewardContainer.classList.remove('visible');
+                setTimeout(() => {
+                    rewardContainer.classList.add('hidden');
+                }, 800);
             }
         }
         
         // ===== CUTE ANIMAL REWARD FEATURE =====
+        const rewardImageElement = document.getElementById('reward-image');
         const newRewardButton = document.getElementById('new-reward-btn');
         
         // Function to fetch a cute animal image using AJAX
         function fetchCuteAnimal() {
             // Show loading state
-            if (rewardImageElement) {
-                rewardImageElement.src = 'https://via.placeholder.com/400x300?text=Loading...';
-                
-                // Use the Dog CEO API for cute dog images
-                fetch('https://dog.ceo/api/breeds/image/random')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        // Update image source with the fetched dog image
-                        if (data && data.message) {
-                            rewardImageElement.src = data.message;
-                            rewardImageElement.alt = 'Cute dog reward';
-                        } else {
-                            throw new Error('Invalid response format');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching cute animal:', error);
-                        // Fallback image in case of error
-                        rewardImageElement.src = 'https://via.placeholder.com/400x300?text=Could+not+load+image';
-                        rewardImageElement.alt = 'Error loading cute animal';
-                    });
-            }
+            rewardImageElement.src = 'https://via.placeholder.com/400x300?text=Loading...';
+            
+            // Use the Dog CEO API for cute dog images
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update image source with the fetched dog image
+                    rewardImageElement.src = data.message;
+                    rewardImageElement.alt = 'Cute dog reward';
+                })
+                .catch(error => {
+                    console.error('Error fetching cute animal:', error);
+                    // Fallback image in case of error
+                    rewardImageElement.src = 'https://via.placeholder.com/400x300?text=Could+not+load+image';
+                    rewardImageElement.alt = 'Error loading cute animal';
+                });
         }
         
         // Event listener for the "Get Another Cute Animal" button
-        if (newRewardButton) {
-            newRewardButton.addEventListener('click', fetchCuteAnimal);
-        }
-        
-        // Call updateSummary on page load
-        updateSummary();
+        newRewardButton.addEventListener('click', fetchCuteAnimal);
     }
 });
