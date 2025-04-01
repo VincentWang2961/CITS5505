@@ -10,13 +10,17 @@
     <link rel="stylesheet" href="resume.css">
 </head>
 <body>
-    <!-- Dark mode toggle -->
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-        </label>
-        <em>DARK MODE</em>
+    <!-- Floating Navigation Bar -->
+    <div class="floating-nav">
+        <div class="floating-nav-button active" data-page="resume" title="CV Page">
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="floating-nav-button" data-page="bestprac" title="Best Practices">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="floating-nav-button theme-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </div>
     </div>
 
     <!-- Hero section - Full screen with name and short intro -->
@@ -247,13 +251,7 @@
                 </div>
             </div>
             
-            <!-- Button to redirect to another page -->
-            <div class="redirect-button-container">
-                <a href="./bestprac.html" class="redirect-button">
-                    <span>View Coding Practices Guide</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <!-- Removing the redirect button since we now have the floating navigation -->
         </section>
 
         <!-- References section -->

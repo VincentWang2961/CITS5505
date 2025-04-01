@@ -6,22 +6,25 @@
 // Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ===== DARK MODE TOGGLE =====
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    // ===== FLOATING NAVIGATION AND DARK MODE TOGGLE =====
+    const themeToggle = document.querySelector('.theme-toggle');
+    const navButtons = document.querySelectorAll('.floating-nav-button');
     
     // Function to switch theme
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark'); // Save preference to localStorage
-        } else {
+    function switchTheme() {
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light'); // Save preference to localStorage
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark'); // Save preference to localStorage
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
     }
     
-    // Event listener for theme switch
-    toggleSwitch.addEventListener('change',switchTheme, false);
+    // Event listener for theme toggle
+    themeToggle.addEventListener('click', switchTheme);
     
     // Check for saved user preference
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
@@ -31,16 +34,34 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.setAttribute('data-theme', currentTheme);
         
         if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
     } else {
         // Check if user prefers dark mode based on system settings
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.setAttribute('data-theme', 'dark');
-            toggleSwitch.checked = true;
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             localStorage.setItem('theme', 'dark');
         }
     }
+    
+    // Handle navigation button clicks
+    navButtons.forEach(button => {
+        if (button.classList.contains('theme-toggle')) return;
+        
+        button.addEventListener('click', function() {
+            const page = this.getAttribute('data-page');
+            if (page) {
+                if (page === 'resume') {
+                    window.location.href = './resume.html';
+                } else if (page === 'bestprac') {
+                    window.location.href = './bestprac.html';
+                }
+            }
+        });
+    });
     
     // ===== PROFILE PICTURE ANIMATION =====
     const profilePicture = document.getElementById('profile-picture');
@@ -59,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle scroll events for animations
     function handleScrollAnimations() {
         // Profile picture animation
-        if (isInViewport(profilePicture) && !profilePicture.classList.contains('visible')) {
+        if (profilePicture && isInViewport(profilePicture) && !profilePicture.classList.contains('visible')) {
             profilePicture.classList.add('visible');
         }
         

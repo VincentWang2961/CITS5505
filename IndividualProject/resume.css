@@ -74,6 +74,69 @@ a:hover {
     padding: 2rem 0;
 }
 
+/* ===== FLOATING NAVIGATION BAR ===== */
+.floating-nav {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--section-bg-color);
+    padding: 12px 8px;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    z-index: 999;
+    transition: all var(--transition-speed);
+}
+
+.floating-nav-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.floating-nav-button:hover {
+    transform: translateX(-5px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.floating-nav-button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.theme-toggle i.fa-sun {
+    color: #f39c12;
+}
+
+.theme-toggle i.fa-moon {
+    color: #3498db;
+}
+
+[data-theme="dark"] .theme-toggle {
+    background-color: var(--primary-color);
+}
+
+[data-theme="dark"] .theme-toggle i.fa-moon {
+    color: white;
+}
+
+/* Remove old theme switch styles */
+.theme-switch-wrapper {
+    display: none;
+}
+
 /* ===== DARK MODE TOGGLE ===== */
 .theme-switch-wrapper {
     display: flex;
@@ -619,12 +682,6 @@ footer {
     transform: scale(0.95);
 }
 
-.theme-switch-wrapper {
-    top: 20px;
-    right: 20px;
-    left: auto;
-}
-
 /* ===== INTRO SECTION ===== */
 .intro-content {
     max-width: 800px;
@@ -1029,6 +1086,24 @@ footer {
     .practice-header {
         flex-wrap: wrap;
     }
+    
+    .floating-nav {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+        flex-direction: row;
+        padding: 8px 12px;
+    }
+    
+    .floating-nav-button:hover {
+        transform: translateY(-5px);
+    }
+    
+    .back-to-top.visible {
+        bottom: 80px;
+        right: 20px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1098,5 +1173,23 @@ footer {
     
     .code-example pre {
         font-size: 0.8rem;
+    }
+    
+    .floating-nav {
+        right: 10px;
+        bottom: 10px;
+        padding: 6px 10px;
+    }
+    
+    .floating-nav-button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .back-to-top.visible {
+        bottom: 70px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
     }
 }
