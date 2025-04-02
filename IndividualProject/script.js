@@ -45,9 +45,18 @@ document.addEventListener('DOMContentLoaded', function() {
     navButtons.forEach(button => {
         if (button.classList.contains('theme-toggle')) return;
         
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            // Get the target page name from the data-page attribute
             const page = this.getAttribute('data-page');
             if (page) {
+                // Check if the button is already active (current page)
+                if (this.classList.contains('active')) {
+                    // If we're already on this page, prevent navigation
+                    e.preventDefault();
+                    return;
+                }
+                
+                // Navigate to the selected page
                 if (page === 'resume') {
                     window.location.href = './resume.html';
                 } else if (page === 'bestprac') {
