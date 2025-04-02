@@ -1,0 +1,339 @@
+/* ===== INTRO SECTION ===== */
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.intro-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* ===== PRACTICES SECTION ===== */
+.practices-category {
+    margin-bottom: 3rem;
+}
+
+.practices-category h3 {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.practices-category h3 i {
+    font-size: 1.4rem;
+}
+
+.practices-list {
+    background-color: var(--background-color);
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px var(--shadow-color);
+}
+
+.practice-item {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    background-color: var(--background-color);
+}
+
+.practice-item:hover {
+    background-color: var(--section-bg-color);
+    transform: translateX(5px);
+}
+
+.practice-item:last-child {
+    border-bottom: none;
+}
+
+.practice-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    cursor: pointer;
+}
+
+.practice-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.practice-description {
+    margin-top: 1rem;
+    padding-left: 2.5rem;
+    display: none;
+}
+
+.practice-description p {
+    margin-bottom: 1rem;
+}
+
+.practice-item.active .practice-description {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.practice-item.active {
+    background-color: var(--section-bg-color);
+}
+
+.practice-item.active .practice-header h4 {
+    color: var(--secondary-color);
+}
+
+/* Checkbox Styling */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+    min-width: 35px;
+    height: 25px;
+    margin: 8px 0;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: var(--section-bg-color);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 45%;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+    animation: checkmark 0.2s ease-in-out;
+}
+
+/* Code example styling */
+.code-example {
+    background-color: var(--code-bg-color);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.code-example code {
+    color: var(--text-color);
+}
+
+/* Tool link styling */
+.tool-link {
+    margin-bottom: 1rem;
+}
+
+.tool-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--section-bg-color);
+    border-radius: 5px;
+    transition: background-color var(--transition-speed);
+}
+
+.tool-link a:hover {
+    background-color: var(--border-color);
+}
+
+/* ===== SUMMARY SECTION ===== */
+.summary-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.summary-stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Progress Circle styles */
+.progress-circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.progress-ring-circle-bg {
+    stroke: var(--border-color);
+    stroke-width: 10;
+    fill: transparent;
+}
+
+.progress-ring-circle {
+    stroke: var(--primary-color);
+    stroke-width: 10;
+    fill: transparent;
+    stroke-dasharray: 408.4;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.summary-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.summary-text p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+#percentage {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#success-message {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.reward-container {
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.reward-container.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#reward-image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.new-reward-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 3px 10px var(--shadow-color);
+    transition: all var(--transition-speed);
+}
+
+.new-reward-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.new-reward-btn:active {
+    transform: translateY(0);
+}
+
+/* Add checkmark animation */
+@keyframes checkmark {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
+}
+
+/* Mobile-specific styles for best practices page */
+@media screen and (max-width: 768px) {
+    .practice-description {
+        padding-left: 0;
+    }
+    
+    .summary-stats {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .practice-item {
+        padding: 1rem;
+    }
+    
+    .code-example {
+        padding: 0.5rem;
+    }
+    
+    .code-example pre {
+        font-size: 0.8rem;
+    }
+}
