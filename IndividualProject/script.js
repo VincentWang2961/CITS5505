@@ -4,10 +4,10 @@
  * local storage for user selections, and AJAX requests.
  */
 
-// Wait for the DOM to be fully loaded before executing code
-document.addEventListener('DOMContentLoaded', function() {
+// Wait for the DOM to be fully loaded before executing code, which accelerates the loading of the page
+document.addEventListener('DOMContentLoaded', () => {
     
-    // ===== FLOATING NAVIGATION AND DARK MODE TOGGLE =====
+    // ===== FLOATING NAVIGATION AND DARK MODE TOGGLE ===== //
     const themeToggle = document.querySelector('.theme-toggle');
     const navButtons = document.querySelectorAll('.floating-nav-button');
     
@@ -288,9 +288,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const percentageElement = document.getElementById('percentage');
         const successMessageElement = document.getElementById('success-message');
         const rewardContainerElement = document.getElementById('reward-container');
-        
-        // Success criteria: 15 out of 20 practices (75%)
-        const successThreshold = 15;
         
         // Function to update the summary section
         function updateSummary() {

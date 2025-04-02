@@ -116,7 +116,7 @@ a:hover {
 }
 
 .floating-nav-button:hover {
-    transform: scale(1.15); /* Change to scale instead of translateX */
+    transform: scale(1.15);
     background-color: var(--primary-color);
     color: white;
 }
