@@ -337,8 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // ===== CUTE ANIMAL REWARD FEATURE ===== //
-        // Function to fetch a cute animal image from public API
+        // ===== CUTE ANIMAL REWARD FEATURE =====
         function fetchCuteAnimal() {
             // Show loading state
             const rewardImage = document.getElementById('reward-image');
