@@ -39,13 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
-    } else {
-        // Check if user prefers dark mode based on system settings
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            localStorage.setItem('theme', 'dark');
-        }
     }
     
     // Handle navigation button clicks
