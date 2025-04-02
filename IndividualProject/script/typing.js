@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     clearInterval(typeInterval);
                     text.innerHTML = originalHTML;
                 }
-            }, 100);
+            }, 50);
         });
     }
     
