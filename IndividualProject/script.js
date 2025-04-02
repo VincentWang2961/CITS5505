@@ -6,41 +6,21 @@
 
 // Wait for the DOM to be fully loaded before executing code, which accelerates the loading of the page
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // ===== FLOATING NAVIGATION AND DARK MODE TOGGLE ===== //
-    const themeToggle = document.querySelector('.theme-toggle');
+
+    // ===== FUNCTION TO CHECK IF ELEMENT IS IN VIEWPORT ===== //
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // ===== FLOATING NAVIGATION BUTTONS ===== // Still Working on this //
     const navButtons = document.querySelectorAll('.floating-nav-button');
-    
-    // Function to switch theme
-    function switchTheme() {
-        if (document.documentElement.getAttribute('data-theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light'); // Save preference to localStorage
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark'); // Save preference to localStorage
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-    }
-    
-    // Event listener for theme toggle
-    themeToggle.addEventListener('click', switchTheme);
-    
-    // Check for saved user preference
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    
-    // If user has previously chosen a theme, apply it
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        
-        if (currentTheme === 'dark') {
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        } else {
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        }
-    }
-    
+
     // Handle navigation button clicks
     navButtons.forEach(button => {
         if (button.classList.contains('theme-toggle')) return;
@@ -66,12 +46,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // ===== BACK TO TOP BUTTON =====
+    // ===== DARK MODE TOGGLE ===== //
+    const themeToggle = document.querySelector('.theme-toggle');
+    
+    // Function to switch theme between light and dark and save the preference in local storage
+    function switchTheme() {
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+    }
+    
+    // Event listener for theme toggle
+    themeToggle.addEventListener('click', switchTheme);
+    
+    // Check for saved user preference, default to light theme
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light';
+    
+    // If user has previously chosen a theme, apply it
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    }
+    
+    // ===== BACK TO TOP BUTTON ===== //
     const backToTopButton = document.getElementById('backToTop');
 
-    // Function to show/hide the back-to-top button based on scroll position
+    // Function to show or hide the button based on scroll position
     function handleBackToTopVisibility() {
-        if (window.pageYOffset > 300) { // Show button after scrolling 300px
+        // Show button after scrolling 300px
+        if (window.pageYOffset > 300) {
             backToTopButton.classList.add('visible');
         } else {
             backToTopButton.classList.remove('visible');
@@ -92,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize back to top button visibility
     handleBackToTopVisibility();
     
-    // ===== TYPING EFFECT FOR HERO SECTION =====
+    // ===== TYPING EFFECT FOR HERO SECTION ===== //
     function setupTypingEffect() {
         const texts = document.querySelectorAll('.animated-text, .animated-text-delay');
         
@@ -100,11 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = text.textContent;
             const originalHTML = text.innerHTML;
             
-            // Skip if we've already processed this element
+            // Skip if already processed this element
             if (text.getAttribute('data-original-text')) return;
             
+            // Clear the text content at the start
             text.setAttribute('data-original-text', originalText);
             text.innerHTML = '';
+            text.style.visibility = 'visible';
             
             let charIndex = 0;
             const typeInterval = setInterval(() => {
@@ -112,31 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     text.textContent += originalText.charAt(charIndex);
                     charIndex++;
                 } else {
+                    // Restore any HTML that might have been in the original
                     clearInterval(typeInterval);
-                    text.innerHTML = originalHTML; // Restore any HTML that might have been in the original
+                    text.innerHTML = originalHTML;
                 }
             }, 100);
         });
     }
     
     // Start typing effect after a short delay
-    setTimeout(setupTypingEffect, 500);
+    setTimeout(setupTypingEffect, 100);
 
-    // ===== FUNCTION TO CHECK IF ELEMENT IS IN VIEWPORT =====
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    // ===== CV PAGE SPECIFIC FUNCTIONS =====
+    // ===== CV PAGE SPECIFIC FUNCTIONS ===== //
     // Check if we're on the resume page
-    const isResumePage = window.location.pathname.includes('resume.html') || 
-                         document.querySelector('.profile-picture');
+    const isResumePage = window.location.pathname.includes('resume.html') ||   document.querySelector('.profile-picture');
 
     if (isResumePage) {
         const profilePicture = document.getElementById('profile-picture');

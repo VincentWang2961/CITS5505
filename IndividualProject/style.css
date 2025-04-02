@@ -223,6 +223,7 @@ input:checked + .slider:before {
 .hero-content {
     max-width: 800px;
     padding: 0 2rem;
+    visibility: hidden;
 }
 
 .hero-content h1 {
