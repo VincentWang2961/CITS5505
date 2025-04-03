@@ -105,6 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // Add hover effects to match the floating-nav-button behavior
+    backToTopButton.addEventListener('mouseenter', function() {
+        // No need to add hover effects in JavaScript as we handle this in CSS
+    });
+    
+    backToTopButton.addEventListener('mouseleave', function() {
+        // No need to add hover effects in JavaScript as we handle this in CSS
+    });
+    
     // Initialize back to top button visibility
     handleBackToTopVisibility();
 });

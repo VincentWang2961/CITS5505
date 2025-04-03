@@ -97,7 +97,7 @@ a:hover {
         right: -60px;
     }
     to {
-        right: 20px;
+        right: 22px; /* Aligned with back-to-top button */
     }
 }
 
@@ -294,9 +294,9 @@ footer {
 .back-to-top {
     position: fixed;
     bottom: -60px; /* Start off-screen */
-    right: 30px;
-    width: 45px;
-    height: 45px;
+    right: 30px; /* Matches the right position of floating-nav after animation */
+    width: 40px; /* Match the width of floating-nav-button */
+    height: 40px; /* Match the height of floating-nav-button */
     border-radius: 50%;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -304,8 +304,8 @@ footer {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 10px var(--shadow-color);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 5px var(--shadow-color); /* Match the shadow of floating-nav-button */
+    transition: all var(--transition-speed); /* Match the transition speed */
     opacity: 0;
     z-index: 998;
 }
@@ -316,7 +316,7 @@ footer {
 }
 
 .back-to-top:hover {
-    transform: scale(1.15) translateY(-5px);
+    transform: scale(1.15); /* Match the scale effect of floating-nav-button */
     background-color: var(--primary-color);
     color: white;
 }
@@ -372,7 +372,7 @@ footer {
     .floating-nav {
         top: auto;
         bottom: 20px;
-        right: 20px; /* Ensure it's visible on mobile */
+        right: 30px; /* Aligned with back-to-top button */
         transform: none;
         flex-direction: row;
         padding: 8px 12px;
@@ -385,7 +385,7 @@ footer {
     
     .back-to-top.visible {
         bottom: 80px;
-        right: 20px;
+        right: 30px; /* Matches floating-nav */
     }
 }
 
@@ -422,7 +422,7 @@ footer {
     }
     
     .floating-nav {
-        right: 10px;
+        right: 20px; /* Aligned with back-to-top button on small screens */
         bottom: 10px;
         padding: 6px 10px;
     }
@@ -434,8 +434,8 @@ footer {
     
     .back-to-top.visible {
         bottom: 70px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
+        right: 20px; /* Matches floating-nav on small screens */
+        width: 35px; /* Match the reduced size of floating-nav-button */
+        height: 35px; /* Match the reduced size of floating-nav-button */
     }
 }
