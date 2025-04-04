@@ -10,16 +10,28 @@
 
 // Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we're on the resume page
+    // ===== VIEWPORT DETECTION UTILITY ===== //
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // ===== PAGE DETECTION ===== //
+    // Check if we're on the resume page before initializing resume-specific features
     const isResumePage = window.location.pathname.includes('resume.html') || document.querySelector('.profile-picture');
 
     if (isResumePage) {
         const profilePicture = document.getElementById('profile-picture');
         
-        // Reference isInViewport function from sidebar.js
+        // Use global isInViewport function from sidebar.js if available, otherwise use local implementation
         const isInViewport = window.isInViewport || function() { return true; };
 
-        // ===== SCROLL ANIMATIONS FOR RESUME PAGE =====
+        // ===== SCROLL ANIMATIONS FOR RESUME PAGE ===== //
         function handleResumeScrollAnimations() {
             // Profile picture animation
             if (profilePicture && isInViewport(profilePicture) && !profilePicture.classList.contains('visible')) {
@@ -47,12 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
+        // ===== EVENT LISTENERS ===== //
+        // Trigger animations on scroll
         window.addEventListener('scroll', handleResumeScrollAnimations);
         
         // Trigger once on load to check for elements already in viewport
         handleResumeScrollAnimations();
 
-        // ===== TECH ICONS HOVER EFFECT =====
+        // ===== TECH ICONS HOVER EFFECT ===== //
         const techIcons = document.querySelectorAll('.tech-icon');
         
         techIcons.forEach(icon => {
@@ -65,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-        // ===== REDIRECT BUTTON EFFECT =====
+        // ===== REDIRECT BUTTON EFFECT ===== //
         const redirectButton = document.querySelector('.redirect-button');
         
         if (redirectButton) {
@@ -78,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // ===== SMOOTH SCROLLING FOR INTERNAL LINKS =====
+        // ===== SMOOTH SCROLLING FOR INTERNAL LINKS ===== //
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

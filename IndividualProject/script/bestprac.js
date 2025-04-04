@@ -10,11 +10,12 @@
 
 // Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we're on the best practices page
+    // ===== PAGE DETECTION ===== //
+    // Check if we're on the best practices page before initializing
     const isBestPracPage = document.querySelector('.practice-checkbox') !== null;
                            
     if (isBestPracPage) {
-        // Constants and variables
+        // ===== CONSTANTS AND VARIABLES ===== //
         const practiceCheckboxes = document.querySelectorAll('.practice-checkbox');
         const totalPractices = practiceCheckboxes.length;
         const successThreshold = 15; // Number of practices required for reward
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set the total practices count in the summary
         document.getElementById('total-practices').textContent = totalPractices;
         
-        // ===== PRACTICE ITEMS INTERACTION =====
+        // ===== PRACTICE ITEMS INTERACTION ===== //
         
         // Function to toggle practice item details
         const togglePracticeDetails = (event) => {
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.addEventListener('click', togglePracticeDetails);
         });
         
-        // ===== CHECKBOX STATE MANAGEMENT =====
+        // ===== CHECKBOX STATE MANAGEMENT ===== //
         
         // Load saved checkbox states from localStorage
         const loadCheckboxStates = () => {
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-        // ===== SUMMARY SECTION =====
+        // ===== SUMMARY SECTION ===== //
         
         // Function to update the summary section
         const updateSummary = () => {
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         
+        // ===== PROGRESS VISUALIZATION ===== //
         // Function to update the progress ring
         const updateProgressRing = (percentage) => {
             const circle = document.querySelector('.progress-ring-circle');
@@ -132,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             circle.style.strokeDashoffset = offset;
         };
         
-        // ===== CUTE ANIMAL REWARD FEATURE =====
+        // ===== CUTE ANIMAL REWARD FEATURE ===== //
         
         // Function to fetch cute animal image from API
         const fetchCuteAnimal = () => {
@@ -171,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newRewardBtn.addEventListener('click', fetchCuteAnimal);
         }
         
-        // Initialize the page
+        // ===== INITIALIZATION ===== //
         loadCheckboxStates();
     }
 });

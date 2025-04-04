@@ -5,23 +5,12 @@
  * - Floating navigation between pages
  * - Dark/light theme toggle and persistence
  * - Back-to-top button functionality 
- * - Viewport detection utility for animations
  */
 
 // Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ===== FUNCTION TO CHECK IF ELEMENT IS IN VIEWPORT ===== //
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
+    // ===== UTILITY FUNCTIONS ===== //
     // Make isInViewport available globally for other scripts
     window.isInViewport = isInViewport;
 
@@ -53,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // ===== DARK MODE TOGGLE ===== //
+    // ===== THEME MANAGEMENT ===== //
     const themeToggle = document.querySelector('.theme-toggle');
     
     // Function to switch theme between light and dark and save the preference in local storage
@@ -85,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // ===== BACK TO TOP BUTTON ===== //
+    // ===== BACK TO TOP FUNCTIONALITY ===== //
     const backToTopButton = document.getElementById('backToTop');
 
     // Function to show or hide the button based on scroll position
