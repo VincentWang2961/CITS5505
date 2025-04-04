@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isResumePage) {
         const profilePicture = document.getElementById('profile-picture');
         
-        // Use global isInViewport function from sidebar.js if available, otherwise use local implementation
-        const isInViewport = window.isInViewport || function() { return true; };
-
         // ===== SCROLL ANIMATIONS FOR RESUME PAGE ===== //
         function handleResumeScrollAnimations() {
             // Profile picture animation

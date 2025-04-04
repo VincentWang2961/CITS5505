@@ -10,10 +10,6 @@
 // Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ===== UTILITY FUNCTIONS ===== //
-    // Make isInViewport available globally for other scripts
-    window.isInViewport = isInViewport;
-
     // ===== FLOATING NAVIGATION BUTTONS ===== //
     const navButtons = document.querySelectorAll('.floating-nav-button');
 
