@@ -1,10 +1,16 @@
 /**
- * JavaScript for the Best Practices page
- * Handles practice item interactions, checkbox state management, and reward functionality
+ * Best Practices Page Functionality
+ * 
+ * This script handles:
+ * - Interactive checklist of best practices with expandable details
+ * - Local storage persistence of user progress
+ * - Dynamic progress visualization with circle chart
+ * - Reward feature that shows cute dog pictures when progress threshold is met
  */
 
+// Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we're on the best practices page by looking for specific elements
+    // Check if we're on the best practices page
     const isBestPracPage = document.querySelector('.practice-checkbox') !== null;
                            
     if (isBestPracPage) {

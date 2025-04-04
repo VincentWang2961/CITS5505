@@ -9,6 +9,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style/commonStyle.css">
     <link rel="stylesheet" href="./style/bestprac.css">
+    <link rel="stylesheet" href="./style/sideBar.css">
 </head>
 <body>
     <!-- Floating Navigation Bar -->
@@ -42,9 +43,7 @@
         <section id="intro" class="section">
             <h2 class="section-title">Introduction</h2>
             <div class="intro-content">
-                <p>Welcome to our comprehensive guide on web development best practices! This page outlines key principles and techniques that can help you create more efficient, maintainable, and user-friendly websites.</p>
-                <p>Use the checkboxes to indicate which practices you already follow in your own development workflow. Your selections will be saved automatically, so you can return to this page anytime to update your progress.</p>
-                <p>Meet our success criteria to receive a special reward!</p>
+                <p>Welcome to our comprehensive guide on web development best practices! This page outlines key principles and techniques that can help you create more efficient, maintainable, and user-friendly websites. Use the checkboxes to indicate which practices you already follow in your own development workflow. Your selections will be saved automatically, so you can return to this page anytime to update your progress. Meet our success criteria to receive a special reward!</p>
             </div>
         </section>
 
@@ -62,21 +61,23 @@
                                 <input type="checkbox" class="practice-checkbox" data-id="1">
                                 <span class="checkmark"></span>
                             </label>
-                            <h4>Use Semantic HTML Elements</h4>
+                            <h4>Maintain Sequential Heading Levels</h4>
                         </div>
                         <div class="practice-description">
-                            <p>Semantic HTML elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code> clearly describe their meaning to both the browser and the developer. They improve accessibility, SEO, and make your code more readable and maintainable.</p>
+                            <p>When using header tags, always proceed sequentially from <code>&lt;h1&gt;</code> to <code>&lt;h2&gt;</code> to <code>&lt;h3&gt;</code> and so on. Skipping heading levels creates confusion for users of screen readers and negatively impacts accessibility.</p>
                             <div class="code-example">
-                                <pre><code>&lt;!-- Good Practice --&gt;
-&lt;header&gt;
-    &lt;h1&gt;Website Title&lt;/h1&gt;
-    &lt;nav&gt;
-        &lt;ul&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/nav&gt;
-&lt;/header&gt;</code></pre>
+                                <pre><code>&lt;!-- Bad Practice --&gt;
+&lt;h1&gt;Coding is fun&lt;/h1&gt;
+&lt;h3&gt;It is always better when you have fun coding&lt;/h3&gt;
+&lt;h5&gt;Consistency is Key&lt;/h5&gt;
+
+&lt;!-- Good Practice --&gt;
+&lt;h1&gt;Can coding be fun?&lt;/h1&gt;
+&lt;h2&gt;The more you code the better you become&lt;/h2&gt;
+&lt;h3&gt;Coding is fun&lt;/h3&gt;</code></pre>
+                            </div>
+                            <div class="extended-reading">
+                                <a href="https://abilitynet.org.uk/factsheets/introduction-screen-readers" target="_blank">An introduction to screen readers <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -107,16 +108,21 @@
                                 <input type="checkbox" class="practice-checkbox" data-id="3">
                                 <span class="checkmark"></span>
                             </label>
-                            <h4>Ensure Accessibility Compliance</h4>
+                            <h4>Use Semantic HTML Elements</h4>
                         </div>
                         <div class="practice-description">
-                            <p>Build websites that are accessible to all users, including those with disabilities. Use proper heading structure, provide alt text for images, ensure sufficient color contrast, and implement keyboard navigation support.</p>
+                            <p>Semantic HTML elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code> clearly describe their meaning to both the browser and the developer. They improve accessibility, SEO, and make your code more readable and maintainable.</p>
                             <div class="code-example">
-                                <pre><code>&lt;!-- Accessible Form Control --&gt;
-&lt;label for="email"&gt;Email Address:&lt;/label&gt;
-&lt;input type="email" id="email" name="email" 
-       aria-describedby="email-help"&gt;
-&lt;p id="email-help"&gt;We'll never share your email.&lt;/p&gt;</code></pre>
+                                <pre><code>&lt;!-- Good Practice --&gt;
+&lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
                             </div>
                         </div>
                     </div>
@@ -171,19 +177,31 @@
                                 <input type="checkbox" class="practice-checkbox" data-id="6">
                                 <span class="checkmark"></span>
                             </label>
-                            <h4>Use CSS Preprocessors</h4>
+                            <h4>Use root Variables for Consistent Styling</h4>
                         </div>
                         <div class="practice-description">
-                            <p>CSS preprocessors like Sass or Less allow you to use variables, nesting, mixins, and functions, making your stylesheets more maintainable and organized. They help reduce repetition and make complex CSS more manageable.</p>
+                            <p>Use :root variables for often used styles like color, font-size, and font-family. This makes for easy color look-up/auto fill and worry-free consistency with your design brief and prototype UI.</p>
                             <div class="code-example">
-                                <pre><code>// Sass example
-$primary-color: #4a6fa5;
+                                <pre><code>/* CSS variables defined in root */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #6c757d;
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --spacing-unit: 8px;
+}
 
+/* Using the variables */
 .button {
-  background-color: $primary-color;
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
+  background-color: var(--primary-color);
+  padding: var(--spacing-unit);
+  font-family: var(--font-body);
+}
+
+.heading {
+  color: var(--secondary-color);
+  font-family: var(--font-heading);
+  margin-bottom: calc(var(--spacing-unit) * 2);
 }</code></pre>
                             </div>
                         </div>
@@ -534,7 +552,7 @@ import { login, logout } from './userAuth.js';
     </div>
 
     <!-- JavaScript -->
-    <script src="./script/sidebar.js"></script>
+    <script src="./script/sideBar.js"></script>
     <script src="./script/typing.js"></script>
     <script src="./script/bestprac.js"></script>
 </body>

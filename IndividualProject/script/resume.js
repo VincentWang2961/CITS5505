@@ -1,8 +1,14 @@
 /**
- * JavaScript for the Resume/CV page
- * Handles resume-specific animations and interactions
+ * Resume Page Interactions
+ * 
+ * This script handles:
+ * - Scroll-based animations for profile picture, timeline items and skills
+ * - Interactive effects for tech icons on hover
+ * - Smooth scrolling for internal links
+ * - Redirect button hover effects
  */
 
+// Wait for the DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
     // Check if we're on the resume page
     const isResumePage = window.location.pathname.includes('resume.html') || document.querySelector('.profile-picture');
@@ -13,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reference isInViewport function from sidebar.js
         const isInViewport = window.isInViewport || function() { return true; };
 
-        // Function to handle scroll events for animations specific to resume page
+        // ===== SCROLL ANIMATIONS FOR RESUME PAGE =====
         function handleResumeScrollAnimations() {
             // Profile picture animation
             if (profilePicture && isInViewport(profilePicture) && !profilePicture.classList.contains('visible')) {

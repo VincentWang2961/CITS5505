@@ -1,39 +1,33 @@
-/* 
- * Shared Stylesheet for Vincent's CV Website and Best Practices Page
- * This CSS file includes styling for all components, responsive design,
- * animations, and dark mode functionality.
- */
-
 /* ===== VARIABLES ===== */
 :root {
-    /* Light theme colors - Updated with modern palette */
-    --primary-color: #3a6ea5;      /* Deeper blue for primary actions */
-    --secondary-color: #6fb3b8;    /* Teal accent for secondary elements */
-    --text-color: #2b3a42;         /* Darker blue-grey for text */
-    --background-color: #ffffff;   /* Clean white background */
-    --section-bg-color: #f6f8fa;   /* Subtle blue-tinted section background */
-    --border-color: #dce3e8;       /* Light blue-grey for borders */
-    --shadow-color: rgba(43, 58, 66, 0.08); /* Subtle shadow with color tint */
-    --timeline-color: #e2e8ed;     /* Slightly blue-tinted timeline */
-    --code-bg-color: #f0f5f9;      /* Light blue for code backgrounds */
-    --success-color: #47b881;      /* Teal-green for success indicators */
+    /* Light theme colors */
+    --primary-color: #3a6ea5;
+    --secondary-color: #6fb3b8;
+    --text-color: #2b3a42;
+    --background-color: #ffffff;
+    --section-bg-color: #f6f8fa;
+    --border-color: #dce3e8;
+    --shadow-color: rgba(43, 58, 66, 0.08);
+    --timeline-color: #e2e8ed;
+    --code-bg-color: #f0f5f9;
+    --success-color: #47b881;
     
     /* Transitions */
     --transition-speed: 0.3s;
 }
 
-/* Dark theme colors - Updated for better contrast and visual comfort */
+/* Dark theme colors */
 [data-theme="dark"] {
-    --primary-color: #5c92c8;      /* Brighter blue for visibility */
-    --secondary-color: #66c2cd;    /* Vibrant teal for accent */
-    --text-color: #e8eef1;         /* Off-white for better readability */
-    --background-color: #15202b;   /* Dark blue-grey background */
-    --section-bg-color: #1c2936;   /* Slightly lighter section background */
-    --border-color: #38444d;       /* Medium blue-grey for borders */
-    --shadow-color: rgba(0, 0, 0, 0.25); /* Deeper shadow for dark theme */
-    --timeline-color: #38444d;     /* Consistent with border color */
-    --code-bg-color: #2a3b4d;      /* Deeper blue for code backgrounds */
-    --success-color: #3fa387;      /* Darker teal-green for success */
+    --primary-color: #5c92c8;
+    --secondary-color: #66c2cd;
+    --text-color: #e8eef1;
+    --background-color: #15202b;
+    --section-bg-color: #1c2936;
+    --border-color: #38444d;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --timeline-color: #38444d;
+    --code-bg-color: #2a3b4d;
+    --success-color: #3fa387;
 }
 
 /* ===== RESET & GLOBAL STYLES ===== */
@@ -74,134 +68,6 @@ a:hover {
     padding: 2rem 0;
 }
 
-/* ===== FLOATING NAVIGATION BAR ===== */
-.floating-nav {
-    position: fixed;
-    top: 50%;
-    right: -60px; /* Start off-screen to the right */
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: var(--section-bg-color);
-    padding: 12px 8px;
-    border-radius: 30px;
-    box-shadow: 0 2px 10px var(--shadow-color);
-    z-index: 999;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother animation */
-    animation: slideInFromRight 0.8s forwards 0.5s; /* Animation to slide in from right */
-}
-
-@keyframes slideInFromRight {
-    from {
-        right: -60px;
-    }
-    to {
-        right: 22px; /* Aligned with back-to-top button */
-    }
-}
-
-.floating-nav-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: all var(--transition-speed);
-    box-shadow: 0 2px 5px var(--shadow-color);
-}
-
-.floating-nav-button:hover {
-    transform: scale(1.15);
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.floating-nav-button.active {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-[data-theme="dark"] .theme-toggle {
-    background-color: var(--primary-color);
-}
-
-[data-theme="dark"] .theme-toggle i.fa-moon {
-    color: white;
-}
-
-/* ===== DARK MODE TOGGLE ===== */
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-    background-color: var(--section-bg-color);
-    padding: 10px;
-    border-radius: 30px;
-    box-shadow: 0 2px 10px var(--shadow-color);
-}
-
-.theme-switch {
-    display: inline-block;
-    height: 34px;
-    position: relative;
-    width: 60px;
-}
-
-.theme-switch input {
-    display: none;
-}
-
-.slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-}
-
-.slider:before {
-    background-color: white;
-    bottom: 4px;
-    content: "";
-    height: 26px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 26px;
-}
-
-input:checked + .slider {
-    background-color: var(--primary-color);
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-.theme-switch-wrapper em {
-    margin-left: 10px;
-    font-size: 0.8rem;
-}
-
 /* ===== HERO SECTION ===== */
 .hero-section {
     height: 100vh;
@@ -209,7 +75,7 @@ input:checked + .slider:before {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #3a6ea5, #6fb3b8); /* Updated gradient with new color scheme */
+    background: linear-gradient(135deg, #3a6ea5, #6fb3b8);
     color: white;
     position: relative;
     overflow: hidden;
@@ -290,37 +156,6 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
-/* ===== BACK TO TOP BUTTON ===== */
-.back-to-top {
-    position: fixed;
-    bottom: -60px; /* Start off-screen */
-    right: 30px; /* Matches the right position of floating-nav after animation */
-    width: 40px; /* Match the width of floating-nav-button */
-    height: 40px; /* Match the height of floating-nav-button */
-    border-radius: 50%;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 5px var(--shadow-color); /* Match the shadow of floating-nav-button */
-    transition: all var(--transition-speed); /* Match the transition speed */
-    opacity: 0;
-    z-index: 998;
-}
-
-.back-to-top.visible {
-    bottom: 30px;
-    opacity: 1;
-}
-
-.back-to-top:hover {
-    transform: scale(1.15); /* Match the scale effect of floating-nav-button */
-    background-color: var(--primary-color);
-    color: white;
-}
-
 /* ===== UTILITY CLASSES ===== */
 .hidden {
     display: none;
@@ -349,7 +184,7 @@ footer {
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translate(-50%, 0); /* Keep X center*/
+        transform: translate(-50%, 0);
     }
     40% {
         transform: translate(-50%, -10px);
@@ -372,20 +207,20 @@ footer {
     .floating-nav {
         top: auto;
         bottom: 20px;
-        right: 30px; /* Aligned with back-to-top button */
+        right: 30px;
         transform: none;
         flex-direction: row;
         padding: 8px 12px;
-        animation: none; /* Remove animation on mobile */
+        animation: none;
     }
     
     .floating-nav-button:hover {
-        transform: scale(1.15); /* Keep consistent with the desktop scale hover */
+        transform: scale(1.15);
     }
     
     .back-to-top.visible {
         bottom: 80px;
-        right: 30px; /* Matches floating-nav */
+        right: 30px;
     }
 }
 
@@ -422,7 +257,7 @@ footer {
     }
     
     .floating-nav {
-        right: 20px; /* Aligned with back-to-top button on small screens */
+        right: 20px;
         bottom: 10px;
         padding: 6px 10px;
     }
@@ -434,8 +269,8 @@ footer {
     
     .back-to-top.visible {
         bottom: 70px;
-        right: 20px; /* Matches floating-nav on small screens */
-        width: 35px; /* Match the reduced size of floating-nav-button */
-        height: 35px; /* Match the reduced size of floating-nav-button */
+        right: 20px;
+        width: 35px;
+        height: 35px;
     }
 }

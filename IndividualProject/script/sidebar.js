@@ -1,7 +1,11 @@
 /**
- * Main JavaScript file for Vincent's Portfolio Website
- * This file handles core interactive elements including navigation, theme toggle,
- * and back-to-top functionality.
+ * Sidebar Navigation and Theme Management
+ * 
+ * This script handles:
+ * - Floating navigation between pages
+ * - Dark/light theme toggle and persistence
+ * - Back-to-top button functionality 
+ * - Viewport detection utility for animations
  */
 
 // Wait for the DOM to be fully loaded before executing code

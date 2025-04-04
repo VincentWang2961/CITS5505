@@ -265,66 +265,6 @@
     color: var(--primary-color);
 }
 
-/* ===== REDIRECT BUTTON ===== */
-.redirect-button-container {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.redirect-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(74, 111, 165, 0.3);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-    overflow: hidden;
-    position: relative;
-}
-
-.redirect-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s;
-}
-
-.redirect-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(74, 111, 165, 0.4);
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.redirect-button:hover::before {
-    transform: translateX(100%);
-}
-
-.redirect-button i {
-    transition: transform var(--transition-speed);
-}
-
-.redirect-button:hover i {
-    transform: translateX(5px);
-}
-
-.redirect-button.back i {
-    transition: transform var(--transition-speed);
-}
-
-.redirect-button.back:hover i {
-    transform: translateX(-5px);
-}
-
 /* Mobile-specific styles for resume page */
 @media screen and (max-width: 992px) {
     .timeline::after {
