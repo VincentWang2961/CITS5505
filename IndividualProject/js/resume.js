@@ -6,6 +6,7 @@
  * - Interactive effects for tech icons on hover
  * - Smooth scrolling for internal links
  * - Redirect button hover effects
+ * - Random profile picture selection
  */
 
 // Wait for the DOM to be fully loaded before executing code
@@ -27,6 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (isResumePage) {
         const profilePicture = document.getElementById('profile-picture');
+        
+        // ===== RANDOM PROFILE PICTURE ===== //
+        if (profilePicture) {
+            // Generate a random number between 0 and 5 (inclusive)
+            const randomNumber = Math.floor(Math.random() * 6);
+            // Set the src to the random mouse image
+            profilePicture.src = `./imag/mouse${randomNumber}.jpeg`;
+        }
         
         // ===== SCROLL ANIMATIONS FOR RESUME PAGE ===== //
         function handleResumeScrollAnimations() {

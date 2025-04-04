@@ -13,9 +13,15 @@
 }
 
 @keyframes konamiReveal {
-    0% { box-shadow: 0 0 10px var(--primary-color); }
-    50% { box-shadow: 0 0 30px var(--secondary-color); }
-    100% { box-shadow: 0 5px 15px var(--shadow-color); }
+    0% { 
+        box-shadow: 0 0 10px var(--primary-color); 
+    }
+    50% { 
+        box-shadow: 0 0 30px var(--secondary-color); 
+    }
+    100% { 
+        box-shadow: 0 5px 15px var(--shadow-color); 
+    }
 }
 
 .konami-message {
