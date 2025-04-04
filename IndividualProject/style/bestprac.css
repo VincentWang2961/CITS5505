@@ -1,3 +1,13 @@
+/**
+ * Best Practices Page Styling
+ * 
+ * This stylesheet handles:
+ * - Introduction section layout and typography
+ * - Interactive practice items with checkboxes
+ * - Progress visualization with circular chart
+ * - Reward container for achievement display
+ */
+
 /* ===== INTRO SECTION ===== */
 .intro-content {
     max-width: 800px;
@@ -312,7 +322,7 @@
     }
 }
 
-/* Mobile-specific styles for best practices page */
+/* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
     .practice-description {
         padding-left: 0;

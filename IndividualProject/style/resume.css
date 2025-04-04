@@ -1,3 +1,13 @@
+/**
+ * Resume Page Styling
+ * 
+ * This stylesheet handles:
+ * - Profile section with animated profile picture
+ * - Skills display with interactive tech icons
+ * - Experience timeline with animated entries
+ * - Education, references and contact information layout
+ */
+
 /* ===== ABOUT SECTION ===== */
 .about-content {
     display: flex;
@@ -265,7 +275,7 @@
     color: var(--primary-color);
 }
 
-/* Mobile-specific styles for resume page */
+/* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 992px) {
     .timeline::after {
         left: 31px;

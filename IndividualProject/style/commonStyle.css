@@ -1,3 +1,13 @@
+/**
+ * Global Styling and Variables
+ * 
+ * This stylesheet handles:
+ * - Theme color variables for light/dark modes
+ * - Global typography and layout rules
+ * - Common components used across multiple pages
+ * - Responsive design breakpoints
+ */
+
 /* ===== VARIABLES ===== */
 :root {
     /* Light theme colors */
