@@ -165,3 +165,52 @@ input:checked + .slider:before {
     background-color: var(--primary-color);
     color: white;
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 992px) {
+    .floating-nav {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+        flex-direction: row;
+        padding: 8px 12px;
+        animation: none;
+    }
+    
+    .floating-nav-button:hover {
+        transform: scale(1.15);
+    }
+    
+    .back-to-top.visible {
+        bottom: 80px;
+        right: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .theme-switch-wrapper {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .floating-nav {
+        right: 20px;
+        bottom: 10px;
+        padding: 6px 10px;
+    }
+    
+    .floating-nav-button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .back-to-top.visible {
+        bottom: 70px;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+    }
+}

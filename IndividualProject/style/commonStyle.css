@@ -78,54 +78,6 @@ a:hover {
     padding: 2rem 0;
 }
 
-/* ===== HERO SECTION ===== */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, #3a6ea5, #6fb3b8);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-content {
-    max-width: 800px;
-    padding: 0 2rem;
-    visibility: hidden;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    animation: bounce 2s infinite;
-    width: max-content;
-}
-
-.scroll-indicator i {
-    margin-top: 8px;
-    font-size: 1.2rem;
-}
-
 /* ===== SECTION STYLES ===== */
 .section {
     padding: 4rem 0;
@@ -185,6 +137,7 @@ footer {
     from {
         opacity: 0;
         transform: translateY(20px);
+        
     }
     to {
         opacity: 1;
@@ -192,53 +145,16 @@ footer {
     }
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translate(-50%, 0);
+@keyframes fadeInUpCenter {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+        
     }
-    40% {
-        transform: translate(-50%, -10px);
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
     }
-    60% {
-        transform: translate(-50%, -5px);
-    }
-}
-
-/* ===== KONAMI CODE EASTER EGG ===== */
-.konami-revealed {
-    animation: konamiReveal 2s ease;
-}
-
-@keyframes konamiReveal {
-    0% { box-shadow: 0 0 10px var(--primary-color); }
-    50% { box-shadow: 0 0 30px var(--secondary-color); }
-    100% { box-shadow: 0 5px 15px var(--shadow-color); }
-}
-
-.konami-message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary-color);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 30px;
-    font-weight: bold;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    animation: fadeInUp 0.5s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.konami-message i {
-    color: yellow;
-}
-
-.fade-out {
-    animation: fadeOut 1s ease forwards;
 }
 
 @keyframes fadeOut {
@@ -247,82 +163,24 @@ footer {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-@media screen and (max-width: 992px) {
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-    
-    .floating-nav {
-        top: auto;
-        bottom: 20px;
-        right: 30px;
-        transform: none;
-        flex-direction: row;
-        padding: 8px 12px;
-        animation: none;
-    }
-    
-    .floating-nav-button:hover {
-        transform: scale(1.15);
-    }
-    
-    .back-to-top.visible {
-        bottom: 80px;
-        right: 30px;
+@media screen and (max-width: 992px) {    
+    .section-title {
+        font-size: 1.8rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
     .section-title {
         font-size: 1.8rem;
-    }
-    
-    .theme-switch-wrapper {
-        top: 10px;
-        right: 10px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
     .section {
         padding: 2rem 0;
     }
     
     .section-title {
         font-size: 1.5rem;
-    }
-    
-    .floating-nav {
-        right: 20px;
-        bottom: 10px;
-        padding: 6px 10px;
-    }
-    
-    .floating-nav-button {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .back-to-top.visible {
-        bottom: 70px;
-        right: 20px;
-        width: 35px;
-        height: 35px;
     }
 }
