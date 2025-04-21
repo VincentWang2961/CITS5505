@@ -1,0 +1,190 @@
+/**
+ * Global Styling and Variables
+ * 
+ * This stylesheet handles:
+ * - Theme color variables for light/dark modes
+ * - Global typography and layout rules
+ * - Common components used across multiple pages
+ * - Responsive design breakpoints
+ */
+
+/* ===== VARIABLES ===== */
+:root {
+    /* Light theme colors */
+    --primary-color: #3a6ea5;
+    --secondary-color: #6fb3b8;
+    --text-color: #2b3a42;
+    --background-color: #ffffff;
+    --section-bg-color: #f6f8fa;
+    --border-color: #dce3e8;
+    --shadow-color: rgba(43, 58, 66, 0.08);
+    --timeline-color: #e2e8ed;
+    --code-bg-color: #f0f5f9;
+    --success-color: #47b881;
+    
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+/* Dark theme colors */
+[data-theme="dark"] {
+    --primary-color: #5c92c8;
+    --secondary-color: #66c2cd;
+    --text-color: #e8eef1;
+    --background-color: #15202b;
+    --section-bg-color: #1c2936;
+    --border-color: #38444d;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --timeline-color: #38444d;
+    --code-bg-color: #2a3b4d;
+    --success-color: #3fa387;
+}
+
+/* ===== RESET & GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* ===== SECTION STYLES ===== */
+.section {
+    padding: 4rem 0;
+    background-color: var(--section-bg-color);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.section:nth-child(even) {
+    background-color: var(--background-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    font-size: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--section-bg-color);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.hidden {
+    display: none;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUpCenter {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+        
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from { 
+        opacity: 1;
+    }
+    to { 
+        opacity: 0;
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 992px) {    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Best Practices</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/commonStyle.css">
+    <link rel="stylesheet" href="./css/bestPrac.css">
+    <link rel="stylesheet" href="./css/sideBar.css">
+    <link rel="stylesheet" href="./css/hero.css">
+</head>
+<body>
+    <!-- Floating Navigation Bar -->
+    <div class="floating-nav">
+        <div class="floating-nav-button" data-page="resume" title="CV Page">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="floating-nav-button active" data-page="bestprac" title="Best Practices">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="floating-nav-button theme-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- Hero section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="animated-text">Web Development Best Practices</h1>
+            <p class="animated-text-delay">A guide to writing clean, efficient, and maintainable code</p>
+            <div class="scroll-indicator">
+                <p>Scroll Down</p>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content section -->
+    <main class="container">
+        <!-- Introduction section -->
+        <section id="intro" class="section">
+            <h2 class="section-title">Introduction</h2>
+            <div class="intro-content">
+                <p>Welcome to our comprehensive guide on web development best practices! This page outlines key principles and techniques that can help you create more efficient, maintainable, and user-friendly websites. Use the checkboxes to indicate which practices you already follow in your own development workflow. Your selections will be saved automatically, so you can return to this page anytime to update your progress. Meet our success criteria to receive a special reward!</p>
+            </div>
+        </section>
+
+        <!-- Best Practices section -->
+        <section id="practices" class="section">
+            <h2 class="section-title">Best Practices Checklist</h2>
+            
+            <!-- HTML Best Practices -->
+            <div class="practices-category">
+                <h3><i class="fas fa-code"></i> HTML Best Practices</h3>
+                <div class="practices-list">
+                    <div class="practice-item" id="practice-1">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Maintain Sequential Heading Levels</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>When using header tags, always proceed sequentially from <code>&lt;h1&gt;</code> to <code>&lt;h2&gt;</code> to <code>&lt;h3&gt;</code> and so on. Skipping heading levels creates confusion for users of screen readers and negatively impacts accessibility.</p>
+                            <div class="code-example">
+                                <pre><code>&lt;!-- Bad Practice --&gt;
+&lt;h1&gt;Coding is fun&lt;/h1&gt;
+&lt;h3&gt;It is always better when you have fun coding&lt;/h3&gt;
+&lt;h5&gt;Consistency is Key&lt;/h5&gt;
+
+&lt;!-- Good Practice --&gt;
+&lt;h1&gt;Can coding be fun?&lt;/h1&gt;
+&lt;h2&gt;The more you code the better you become&lt;/h2&gt;
+&lt;h3&gt;Coding is fun&lt;/h3&gt;</code></pre>
+                            </div>
+                            <div class="extended-reading">
+                                <a href="https://abilitynet.org.uk/factsheets/introduction-screen-readers" target="_blank">An introduction to screen readers <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-2">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="2">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Optimize Images and Media</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Properly sized and compressed images significantly improve page load times. Always include width, height, and alt attributes for images. Use modern formats like WebP when possible, and consider lazy loading for images below the fold.</p>
+                            <div class="code-example">
+                                <pre><code>&lt;img src="image.webp" 
+     alt="Descriptive text" 
+     width="800" 
+     height="600" 
+     loading="lazy"&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-3">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="3">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Use Semantic HTML Elements</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Semantic HTML elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code> clearly describe their meaning to both the browser and the developer. They improve accessibility, SEO, and make your code more readable and maintainable.</p>
+                            <div class="code-example">
+                                <pre><code>&lt;!-- Good Practice --&gt;
+&lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-4">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="4">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Use Proper Document Structure</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Always include a proper DOCTYPE declaration, language attribute, character encoding, and viewport meta tag. This ensures consistent rendering across browsers and devices.</p>
+                            <div class="code-example">
+                                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-5">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="5">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Validate Your HTML</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Regularly validate your HTML using tools like the W3C Markup Validation Service. Valid HTML ensures better cross-browser compatibility and helps identify potential issues early in development.</p>
+                            <div class="tool-link">
+                                <a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS Best Practices -->
+            <div class="practices-category">
+                <h3><i class="fas fa-paint-brush"></i> CSS Best Practices</h3>
+                <div class="practices-list">
+                    <div class="practice-item" id="practice-6">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="6">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Use root Variables for Consistent Styling</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Use :root variables for often used styles like color, font-size, and font-family. This makes for easy color look-up/auto fill and worry-free consistency with your design brief and prototype UI.</p>
+                            <div class="code-example">
+                                <pre><code>/* CSS variables defined in root */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #6c757d;
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --spacing-unit: 8px;
+}
+
+/* Using the variables */
+.button {
+  background-color: var(--primary-color);
+  padding: var(--spacing-unit);
+  font-family: var(--font-body);
+}
+
+.heading {
+  color: var(--secondary-color);
+  font-family: var(--font-heading);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-7">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="7">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Implement Responsive Design</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Design websites that work well on all devices and screen sizes using media queries, flexible grids, and responsive images. Mobile-first approach is recommended for most modern web projects.</p>
+                            <div class="code-example">
+                                <pre><code>/* Mobile-first approach */
+.container {
+  width: 100%;
+  padding: 15px;
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+    margin: 0 auto;
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-8">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="8">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Use a Consistent Naming Convention</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Adopt a consistent naming convention like BEM (Block, Element, Modifier) to create more predictable and maintainable CSS. This helps prevent specificity issues and makes your code more readable.</p>
+                            <div class="code-example">
+                                <pre><code>/* BEM Naming Convention */
+.card { }
+.card__title { }
+.card__image { }
+.card--featured { }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-9">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="9">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Minimize CSS Specificity Issues</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Avoid overly specific selectors and !important declarations. Keep your CSS selectors as simple as possible to prevent specificity conflicts and make your styles easier to override when needed.</p>
+                            <div class="code-example">
+                                <pre><code>/* Avoid */
+#header .navigation ul li a { }
+
+/* Better */
+.nav-link { }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-10">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="10">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Optimize CSS Delivery</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Minify CSS files, combine them when appropriate, and consider critical CSS techniques to improve page load times. Eliminate unused CSS and avoid large CSS frameworks if you're only using a small portion of them.</p>
+                            <div class="tool-link">
+                                <a href="https://cssnano.co/" target="_blank">CSS Nano (Minification Tool) <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript Best Practices -->
+            <div class="practices-category">
+                <h3><i class="fab fa-js"></i> JavaScript Best Practices</h3>
+                <div class="practices-list">
+                    <div class="practice-item" id="practice-11">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="11">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Use Modern JavaScript (ES6+)</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Leverage modern JavaScript features like arrow functions, template literals, destructuring, and modules to write cleaner, more concise code. Use a transpiler like Babel for backward compatibility.</p>
+                            <div class="code-example">
+                                <pre><code>// ES6+ features
+const getData = async () => {
+  try {
+    const response = await fetch('/api/data');
+    const { results } = await response.json();
+    return results.map(item => ({
+      id: item.id,
+      name: item.name
+    }));
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+  }
+};</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-12">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="12">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Optimize JavaScript Loading</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Use defer or async attributes for script tags, minimize parser-blocking JavaScript, and consider code splitting for larger applications. Place scripts at the bottom of the body or use modern loading techniques.</p>
+                            <div class="code-example">
+                                <pre><code>&lt;!-- Use defer for scripts that don't need to execute immediately --&gt;
+&lt;script src="app.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- Use async for independent scripts --&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-13">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="13">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Implement Error Handling</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Always include proper error handling in your JavaScript code, especially for asynchronous operations and user inputs. This improves user experience by preventing unexpected crashes and providing meaningful feedback.</p>
+                            <div class="code-example">
+                                <pre><code>try {
+  // Code that might throw an error
+  const data = JSON.parse(userInput);
+  processData(data);
+} catch (error) {
+  // Handle the error gracefully
+  console.error('Invalid input format:', error);
+  showUserFriendlyMessage('Please provide valid JSON data');
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-14">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="14">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Use a Linter and Formatter</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Implement tools like ESLint and Prettier to enforce consistent code style and catch potential errors early. This helps maintain code quality, especially in team environments.</p>
+                            <div class="tool-link">
+                                <a href="https://eslint.org/" target="_blank">ESLint <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" id="practice-15">
+                        <div class="practice-header">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="practice-checkbox" data-id="15">
+                                <span class="checkmark"></span>
+                            </label>
+                            <h4>Write Modular JavaScript</h4>
+                        </div>
+                        <div class="practice-description">
+                            <p>Organize your code into small, reusable modules with clear responsibilities. This improves maintainability, testability, and makes your codebase easier to understand and extend.</p>
+                            <div class="code-example">
+                                <pre><code>// userAuth.js
+export const login = (credentials) => {
+  // Login logic
+};
+
+export const logout = () => {
+  // Logout logic
+};
+
+// app.js
+import { login, logout } from './userAuth.js';
+
+// Use the imported functions</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary section -->
+        <section id="summary" class="section">
+            <h2 class="section-title">Your Progress Summary</h2>
+            <div class="summary-container">
+                <div class="summary-stats">
+                    <div class="progress-circle">
+                        <svg class="progress-ring" width="150" height="150">
+                            <circle class="progress-ring-circle-bg" stroke-width="10" fill="transparent" r="65" cx="75" cy="75"/>
+                            <circle class="progress-ring-circle" stroke-width="10" fill="transparent" r="65" cx="75" cy="75"/>
+                        </svg>
+                        <div class="progress-text">
+                            <span id="practices-count">0</span>/<span id="total-practices">20</span>
+                        </div>
+                    </div>
+                    <div class="summary-text">
+                        <p>You've implemented <span id="percentage">0%</span> of the best practices!</p>
+                        <p id="success-message" class="hidden">Congratulations! You've met our success criteria by implementing at least 12 best practices. Here's a cute animal as a reward:</p>
+                    </div>
+                </div>
+                <div id="reward-container" class="reward-container hidden">
+                    <img id="reward-image" src="./img/placeholder.jpeg" alt="Cute animal reward">
+                    <button id="new-reward-btn" class="new-reward-btn">
+                        <i class="fas fa-sync-alt"></i> Get Another Cute Animal
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vincent Wang. All rights reserved.</p>
+            <p>This page was created as part of CITS5505 Agile Web Development.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./js/sideBar.js"></script>
+    <script src="./js/typing.js"></script>
+    <script src="./js/bestPrac.js"></script>
+</body>
+</html>
