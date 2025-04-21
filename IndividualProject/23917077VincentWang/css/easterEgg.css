@@ -1,0 +1,66 @@
+/**
+ * Easter Egg Styling
+ * 
+ * This stylesheet handles:
+ * - Konami code visual effects
+ * - Easter egg message display
+ * - Animation for revealing and hiding Easter egg content
+ */
+
+/* ===== KONAMI CODE EASTER EGG ===== */
+.konami-revealed {
+    animation: konamiReveal 2s ease;
+}
+
+@keyframes konamiReveal {
+    0% { 
+        box-shadow: 0 0 10px var(--primary-color); 
+    }
+    50% { 
+        box-shadow: 0 0 30px var(--secondary-color); 
+    }
+    100% { 
+        box-shadow: 0 5px 15px var(--shadow-color); 
+    }
+}
+
+.konami-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeInUpCenter 0.5s ease;
+}
+
+.konami-message i {
+    color: yellow;
+}
+
+.fade-out {
+    animation: fadeOut 1s ease forwards;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 768px) {
+    .konami-message {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .konami-message {
+        width: 80%;
+        text-align: center;
+    }
+}

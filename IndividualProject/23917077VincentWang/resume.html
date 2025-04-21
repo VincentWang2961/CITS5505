@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent Wang Resume</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/commonStyle.css">
+    <link rel="stylesheet" href="./css/resume.css">
+    <link rel="stylesheet" href="./css/sideBar.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/easterEgg.css">
+</head>
+<body>
+    <!-- Floating Navigation Bar -->
+    <div class="floating-nav">
+        <div class="floating-nav-button active" data-page="resume" title="CV Page">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="floating-nav-button" data-page="bestprac" title="Best Practices">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="floating-nav-button theme-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- Hero section - Full screen with name and short intro -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="animated-text">Vincent Wang</h1>
+            <p class="animated-text-delay">Full-stack Web Developer</p>
+            <div class="scroll-indicator">
+                <p>Scroll Down</p>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content section -->
+    <main class="container">
+        <!-- About section with profile picture -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-picture-container">
+                    <!-- Profile picture -->
+                    <img src="./img/placeholder.jpeg" alt="Chips the Mouse" class="profile-picture" id="profile-picture">
+                </div>
+                <div class="about-text">
+                    <p>Squeaks and greetings! I'm Chips, the intellectual mouse companion of Vincent Wang. Don't let my tiny paws fool you – I've mastered the art of keyboard navigation and can code faster than you can say "cheese!"</p>
+                    <p>With whiskers that can sense code bugs from miles away, I've been Vincent's secret debugging assistant for over 3 years (that's like 21 in mouse years!). I specialize in finding the tiniest errors that human eyes miss, and I'm particularly skilled at navigating through maze-like codebases.</p>
+                    <p>When I'm not helping Vincent with his projects, you can find me creating intricate nests from discarded sticky notes, conducting scientific experiments on which cheese pairs best with different coding languages, or running on my ergonomic exercise wheel to maintain peak performance. My mission is to prove that even the smallest creatures can make a big impact in the tech world!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills section with tech stack icons -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+
+              <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-vuejs"></i>
+                        <span>Vue 3</span>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-angular"></i>
+                        <span>Angular</span>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-sass"></i>
+                        <span>Sass/SCSS</span>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-js"></i>
+                        <span>ES6+</span>
+                    </div>
+                </div>
+            </div>
+                
+                <div class="skill-category">
+                  <h3>Backend</h3>
+                  <div class="tech-icons">
+                      <div class="tech-icon">
+                          <i class="fab fa-node"></i>
+                          <span>Node.js</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fas fa-server"></i>
+                          <span>Express.js</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fab fa-python"></i>
+                          <span>Python</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fas fa-database"></i>
+                          <span>PostgreSQL</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fas fa-leaf"></i>
+                          <span>MongoDB</span>
+                      </div>
+                  </div>
+              </div>
+
+                <div class="skill-category">
+                  <h3>Cloud & DevOps</h3>
+                  <div class="tech-icons">
+                      <div class="tech-icon">
+                          <i class="fab fa-aws"></i>
+                          <span>AWS</span>
+                      </div>
+                      <div class="tech-icon">
+                        <i class="fab fa-microsoft"></i>
+                        <span>Azure</span>
+                    </div>
+                      <div class="tech-icon">
+                          <i class="fab fa-docker"></i>
+                          <span>Docker</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fab fa-git-alt"></i>
+                          <span>GitOps</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fab fa-jenkins"></i>
+                          <span>Jenkins</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fas fa-bolt"></i>
+                          <span>CI/CD</span>
+                      </div>
+                  </div>
+              </div>
+
+                <div class="skill-category">
+                  <h3>Development Tools</h3>
+                  <div class="tech-icons">
+                      <div class="tech-icon">
+                          <i class="fab fa-github"></i>
+                          <span>GitHub</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fab fa-npm"></i>
+                          <span>NPM/Yarn</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fas fa-terminal"></i>
+                          <span>Bash/Zsh</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fab fa-figma"></i>
+                          <span>Figma</span>
+                      </div>
+                      <div class="tech-icon">
+                          <i class="fas fa-code"></i>
+                          <span>VSCode</span>
+                      </div>
+                  </div>
+              </div>
+            
+            </div>
+        </section>
+
+        <!-- Experience section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>2022 - Present</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Chief Nibbling Officer</h3>
+                        <h4>Vincent's Home Office</h4>
+                        <p>Lead cable management specialist, ensuring all wires are properly chewed to optimal lengths. Pioneered the "Midnight Keyboard Cleaning" technique, removing crumbs with 99.9% efficiency. Reduced snack waste by 40% through my innovative "Leave No Crumb Behind" initiative.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>2021 - 2022</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Mousepad Quality Assurance Specialist</h3>
+                        <h4>Under-Desk Enterprises</h4>
+                        <p>Conducted rigorous testing of various mousepad surfaces for optimal napping conditions. Created comprehensive reports on fabric durability against prolonged scratching. Collaborated with the Dust Collection Department to ensure consistent workspace aesthetic.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>2020 - 2021</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Junior Seed Procurement Agent</h3>
+                        <h4>Backyard Foraging Inc.</h4>
+                        <p>Started my career in the challenging field of food acquisition. Mastered stealth techniques essential for operational success. Set a division record by collecting 27 sunflower seeds in a single night mission. Received the "Squeaky Clean" award for leaving no evidence behind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education section -->
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Master's Degree in Crumb Collection</h3>
+                    <h4>University of Kitchen Counter</h4>
+                    <p class="education-date">2019 - 2020</p>
+                    <p>Graduated top of my nest. Specialized in nocturnal operations and silent movement techniques. Dissertation: "The Art of Avoiding Mousetraps: A Whisker-Based Approach to Survival."</p>
+                </div>
+                <div class="education-item">
+                    <h3>Bachelor of Science in Nest Engineering</h3>
+                    <h4>Rodent Technical Institute</h4>
+                    <p class="education-date">2018 - 2019</p>
+                    <p>Intensive program focusing on sustainable nesting materials and structural integrity under variable weather conditions. Minor in Human Psychology: Understanding Their Screaming When They See You.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email: <a href="mailto:chips@mousemail.squeak">chips@mousemail.squeak</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>Communication: Three squeaks for yes, two for no</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Location: Third Hole Behind the Bookshelf, Vincent's Room</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <p>MousedIn: <a href="https://mousedin.com/" target="_blank">mousedin.com/in/chips</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <p>MouseHub: <a href="https://mousehub.com/" target="_blank">mousehub.com/chips</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- References section -->
+        <section id="references" class="section">
+            <h2 class="section-title">References</h2>
+            <div class="references-container">
+                <div class="reference-item">
+                    <h3>References</h3>
+                    <ul>
+                        <li>W3Schools. (n.d.). HTML Tutorial. https://www.w3schools.com/html/</li>
+                        <li>W3Schools. (n.d.). CSS Tutorial. https://www.w3schools.com/css/</li>
+                        <li>W3Schools. (n.d.). JS Tutorial. https://www.w3schools.com/js/</li>
+                        <li>Font Awesome. (n.d.). Font Awesome. https://fontawesome.com</li>
+                        <li>Cess. (2022, January 3). HTML Best Practices – How to Build a Better HTML-Based Website. freeCodeCamp. https://www.freecodecamp.org/news/html-best-practices/</li>
+                        <li>AbilityNet. (n.d.). An introduction to screen readers. https://abilitynet.org.uk/factsheets/introduction-screen-readers</li>
+                        <li>Özmen, B. (2023, November 8). JavaScript Modules. Medium: ÇSTech. https://medium.com/cstech/javascript-modules-e3ef549a9e33</li>
+                        <li>SpeedCurve. (n.d.). Best Practices for Optimizing JavaScript. https://www.speedcurve.com/web-performance-guide/best-practices-for-optimizing-javascript/</li>
+                        <li>Monus, A. (2023, November 22). JavaScript Best Practices. Raygun. https://raygun.com/blog/javascript-best-practices/</li>
+                        <li>MDN Web Docs. (n.d.). JavaScript Code Style Guide. https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript</li>
+                        <li>Kramer, N. (2024, April 2). CSS Best Practices for Clean Code. Daily.dev. https://daily.dev/blog/css-best-practices-for-clean-code</li>
+                        <li>Ravoof, S. (2024, August 1). 14 CSS Best Practices for Beginners. Kinsta. https://kinsta.com/blog/css-best-practices/</li>
+                        <li>OpenAI. (2025). ChatGPT-o1 [Large language model]. https://chat.openai.com/chat</li>
+                        <li>Anthropic. (2025). Claude 3.7 Sonnet [Large language model]. https://claude.ai/</li>
+                    </ul>
+                </div>
+                <!-- Story of the project, try Konami Command -->
+                <div class="reference-item">
+                    <h3>Story of the project</h3>
+                    <p>This project is my first web development project. Before this semester, I tried to learn web development through online resources like public courses such as Harvard's CS50 and Wisconsin–Madison's CS571. However, I found it difficult to learn frameworks like React without first understanding how to work with the native DOM. I didn't fully grasp the fundamentals of DOM manipulation or how it functions, so I stopped these courses and switched to learning through documentation instead.</p>   
+                    <p>My main focus became JavaScript after a friend who is a front-end development expert advised me that JavaScript is the most crucial part of front-end development. Although I had some JavaScript knowledge and experiences from doing labs of previous public courses, I felt overwhelmed when starting the project because it's completely nothing at the beginning and I wasn't sure about the proper workflow. To solve this, I studied some blog posts and personal portfolio websites to understand typical webpage components. I also used generative AI like Claude-3.7 and ChatGPT-o1 to help design the CSS styles since my own designs were ugly and it's a big work.</p>
+                    <p>Starting with a basic HTML structure and CSS with help of AI, I attempted to implement interactive effects using JavaScript. During this phase, I also used AI to debug code, but discovered its limitations - even when I described the errors, the AI couldn't always fix them. Two solutions worked best: either using the browser's developer console to identify exactly where the error occurred (then feeding that information to the AI), or deleting problematic JavaScript code entirely and asking the AI to rewrite it. Some persistent issues arose because some AI-generated CSS occasionally conflicted with other elements - these were simple to fix once found, but hard to detect, especially since AI tools often miss CSS-related issues.</p>
+                    <p>After completing the main development, I researched industry best practices to improve the code quality and added proper source citations. For the resume section, being a first-year student with no work experience, I creatively substituted my own information with pictures of my pet rat and created a fictional rat-themed resume, which turned out to be both functional and humorous.</p>
+                    <p>Regarding the web design, I employed full-color blocking on the homepage combined with a typing animation for the title display - a common pattern seen in various blogs. Originally considered using background images, I ultimately opted for gradient colors to maintain visual consistency across the page. The design features two color schemes supporting different modes: light and dark modes. The layout utilizes floating boxes that trigger hover animations when scrolled into view. Third-party icon libraries are integrated to visually represent my technical stack and enhance button functionality, achieving both aesthetic appeal and usability.</p>
+                    <p>The website features a pill-shaped floating sidebar for page navigation and dark mode toggling, adopting a modern minimalist style. Below the sidebar resides a "Back to Top" button that maintains consistent styling and positioning with the sidebar. Notably, the framework intentionally avoids Bootstrap despite my prior coursework experience with it, instead using media queries for responsive design practice and performance optimization. jQuery was excluded due to its declining relevance in modern workflows, replaced by native JavaScript implementations. For API requests, the contemporary Fetch API is preferred over traditional AJAX. CSS and JavaScript files are modularly organized by functionality to facilitate maintenance and reuse.</p>
+                    <p>During initial development, numerous bugs emerged but were systematically resolved through continuous debugging. While time constraints prevented exhaustive testing, the current build demonstrates stable operation across major browsers, having passed cross-browser compatibility checks. The codebase maintains clear documentation and standardized citation practices for third-party resources.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vincent Wang. All rights reserved.</p>
+            <p>This page was created as part of CITS5505 Agile Web Development.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./js/sideBar.js"></script>
+    <script src="./js/typing.js"></script>
+    <script src="./js/resume.js"></script>
+    <script src="./js/easterEgg.js"></script>
+</body>
+</html>
